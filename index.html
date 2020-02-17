@@ -2,34 +2,37 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Project</title>
+        <title>Visualizing Women in Movies</title>
         <link rel="stylesheet" href="libs/css/index.css" />
         <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css" />
+        <style>
+            font-color{
+                color: white;
+            }
+        </style>
     </head>
 
     <body class="container-fluid">
         <div class="card text-center">
             <div class="card-header">
-                <h2>Project title</h2>
+                <h2>Visualizing Women in Movies</h2>
             </div>
             <div class="card-body">
+                <div id="vis"></div>
+                <svg></svg>
             </div>
         </div>
     </body>
 
-    <script type=text/javascript src="libs/jquery/jquery.min.js"></script>
-    <script type=text/javascript src=libs/bootstrap/js/bootstrap.min.js></script>
+    <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/d3/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet-src.js"></script>
 
     <!-- Scripts -->
-    <script src="js/sunburst.js"></script>
-    <script src="js/main.js"></script>
-    <!-- <script type=text/javascript>
-        $.getJSON("./data/imdb_data.json", function(data) {
-            console.log(data[0].Year);
-        });
-    </script> -->
+
+    <!-- <script src="./js/sunburst.js"></script> -->
+    <script src="./js/main.js"></script>
 
 </html>
