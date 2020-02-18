@@ -17,18 +17,22 @@ print('########## PROCESSING MOVIE DATABASES ########### \n')
 
 ## Read in json file with 5000 imdb movies ##
 data = {}
+cleanData = list()
 with open('./data/imdb_data.json') as json_file:
     data = json.load(json_file)
     a = 0
     for item in data:
         a = a + 1
-        #print(item['Plot'])
+        
+        if 'Type' not in item:
+            continue
+           
         if 'Plot' not in item:
             print("No plot, erasing item")
             continue
         else:
             del item['Plot']
-
+    
         del item['Rated']
         del item['Poster']
         del item['Runtime']
@@ -39,18 +43,52 @@ with open('./data/imdb_data.json') as json_file:
         #del item['imdbRating']
         del item['imdbVotes']
         del item['Metascore']
-        del item['Type']
+        #del item['Type']
         del item['Released']
         item['Genre'] = item['Genre'].partition(' ')[0]
         if item['Genre'][-1] == ',':
             item['Genre'] = item['Genre'][:-1]
-        ## FIX YEAR THAT HAS A SPAN
+        
+        #Fix years that have a span
+        if len(item['Year']) > 4:
+            item['Year'] = item['Year'][:4]
+        
+        item['PosterImage'] = item['imdbID'] + '.jpg'
+        filePath = './data/images/' + item['PosterImage']
+        try:
+            f = open(filePath)
+        except IOError:
+            item['PosterImage'] = 'N/A'
 
+        if item['Type'] != 'movie':
+            continue
+        else:
+            cleanData.append(item)
+                
 
 print('Processed ' + str(a) + ' movies')
-data.sort(key=extract_rating, reverse=True)
-strippedData = data[0:100]
+cleanData.sort(key=extract_rating, reverse=True)
+ITEMS = 100
+strippedData = cleanData[0:ITEMS]
+print('Choosing top ' + str(ITEMS) + ' after imdb score')
 
+images = 0
+uniqueID = 1
+genres = list()
+for item in strippedData:
+    item['id'] = uniqueID
+    item['impact'] = 3
+    uniqueID = uniqueID + 1
+    if item['Genre'] in genres:
+        genresID = 0
+    else:
+        genres.append(item['Genre'])
+    if item['PosterImage'] != 'N/A':
+        images = images + 1
+
+print('Movie posters exists for ' + str(images) + ' movies out of ' + str(ITEMS))
+genres.sort()
+#print(genres)
 
 ## Read in csv file with bechdel test datawith open('employee_birthday.txt') as csv_file:
 with open('./data/bechdel.csv') as csv_file:
@@ -72,12 +110,10 @@ with open('./data/bechdel.csv') as csv_file:
             line_count += 1
     print(f'Processed {line_count} lines of bechdel test info')
 
-#print(extraInfo)
-
 numbMatches = 0
+noInfo = 0
 for entries in strippedData:
     currentID = entries['imdbID']
-    entries['bechdel'] = '-1'
     #print(entries)
     for items in extraInfo['movies']:
         matchingID = items['imdbID']
@@ -88,14 +124,52 @@ for entries in strippedData:
             entries['income'] = items['income']
         else:
             entries['income'] = '-1'
+            entries['bechdel'] = 'N/A'
+            noInfo = noInfo + 1
 
 #print(numbMatches)
 
+print('Bechdel info exists for ' + str(numbMatches) + ' of ' + str(ITEMS) + ' items')
+strippedData = sorted(strippedData, key=lambda k: k['Genre'])
+
+##### FORMAT THE NEW PROCESSED DATA ACCORDING TO VISUALIZATION HIERARCHY
+
+processedData = dict()
+processedData['id'] = 1
+processedData['name'] = 'Movies'
+
+
+childrenData = dict()
+genreData = dict()
+tempData = dict()
+
+genreID = 0
+first = 0
+listAllGenres = list()
+for genre in genres:
+    listGenre = list()
+    for items in strippedData:
+        if items['Genre'] == genres[genreID]:
+            listGenre.append(items)
+    genreID = genreID + 1
+    listAllGenres.append(listGenre)
+
+genreID = 0
+templist = dict()
+fullList = list()
+for allgenres in listAllGenres:
+    templist = dict()
+    templist['id'] = genreID + 1
+    templist['name'] = genres[genreID]
+    templist['children'] = allgenres
+    genreID = genreID + 1
+    fullList.append(templist)
+
+processedData['children'] = fullList
 
 with open('processedData.json', 'w', encoding='utf-8') as f:
-    json.dump(strippedData, f, ensure_ascii=False, indent=4)
-print("Writing to file processedData.json")    
-print("\n ########## DONE PROCESSING ##########")
- 
+    json.dump(processedData, f, ensure_ascii=False, indent=4)
 
-##### FORMAT THE NEW PROCESSED DATA ACCORDING TO VISUALIZATION
+print("Writing to file processedData.json")    
+print("\n########### DONE PROCESSING ###########")
+
