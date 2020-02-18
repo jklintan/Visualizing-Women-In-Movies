@@ -1,30 +1,30 @@
 
-d3.json("./data/testSungraph.json", function (theData) {
+d3.json("./data/testSungraphMovies.json", function (theData) {
 
  var chartData = theData[0];
 
   var colors = {
-    "Manufactur": "#d30000",
-    "Tech": "#ed5b00",
-    "Digconn": "#ff8a00",
-    "Energy": "#a5be00",
-    "Geo": "#007600",
-    "Mach Systems": "#00a9e8",
-    "Mat": "#006395",
-    "Robo": "#8d6fff",
-    "Secure": "#77005c",
-    "Senrs": "#c56290",
-    "Use face": "#a9004f"
+    "Comedy": "#d30000",
+    "Romance": "#ed5b00",
+    "Horror": "#ff8a00",
+    "Action": "#a5be00",
+    "Adventure": "#007600",
+    "Sci-fi": "#00a9e8",
+    "Drama": "#006395",
+    "Thriller": "#8d6fff",
+    "Fantasy": "#77005c",
+    "Animation": "#c56290",
   };
+
   // Dimensions of starburst.
   var width = 800;
   var height = 800;
-  var radius = Math.min(width, height) / 4;
-  var startYear = 2020;
-  var endYear = 2040;
+  var radius = Math.min(width, height) / 3;
+  var startYear = 1960;
+  var endYear = 2020;
   var baseYear = startYear - 1;
-  var yearRing = [{ x: 199, y: 199 }, { x: 162, y: 162 }, { x: 128, y: 128 }, { x: 94, y: 94 }, { x: 60, y: 60 }];
-  var maturationYearTextData = [{ dx: -14, dy: -92, label: "2025" }, { dx: -14, dy: -126, label: "2030" }, { dx: -14, dy: -160, label: "2035" }, { dx: -14, dy: -197, label: "2040" }];
+  var yearRing = [{ x: 264, y: 264 }, { x: 230, y: 230 }, { x: 196, y: 196 }, { x: 162, y: 162 }, { x: 128, y: 128 }, { x: 94, y: 94 }, { x: 60, y: 60 }];
+  var maturationYearTextData = [{ dx: -14, dy: -94, label: "1970" }, { dx: -14, dy: -128, label: "1980" }, { dx: -14, dy: -162, label: "1990" }, { dx: -14, dy: -196, label: "2000" }, { dx: -14, dy: -230, label: "2010" }, { dx: -14, dy: -264, label: "2020" }];
 
 
   var vis = d3.select("#vis").append("svg:svg")
@@ -45,14 +45,14 @@ d3.json("./data/testSungraph.json", function (theData) {
       if (d.depth == 1) {
         return 60;
       } else {
-        return Math.sqrt(d.y) + 50;
+        return Math.sqrt(d.y) + 65;
       }
     })
     .outerRadius(function (d) {
       if (d.depth == 2) {
         return Math.sqrt(d.y + d.dy);
       } else {
-        return Math.sqrt(d.y + d.dy) + 50;
+        return Math.sqrt(d.y + d.dy) + 65;
       }
     });
 
@@ -104,12 +104,12 @@ d3.json("./data/testSungraph.json", function (theData) {
       .style("stroke-width", 1.5);
 
     var maturationYear = vis.selectAll("ellipse")
-      .data([{ cx: 0, cy: -92 }, { cx: 0, cy: -126 }, { cx: 0, cy: -160 }, { cx: 0, cy: -197 }])
+      .data([{ cx: 0, cy: -94 }, { cx: 0, cy: -128 }, { cx: 0, cy: -162 }, { cx: 0, cy: -196 }, { cx: 0, cy: -230 }, { cx: 0, cy: -264 }])
       .enter().append("svg:ellipse")
       .attr("cx", function (d) { return d.cx; })
       .attr("cy", function (d) { return d.cy; })
-      .attr("rx", 24)
-      .attr("ry", 13)
+      .attr("rx", 20)
+      .attr("ry", 12)
       .style("fill", "#fff");
 
 
@@ -122,7 +122,7 @@ d3.json("./data/testSungraph.json", function (theData) {
       .style("font-size", function (d) { return (d.depth == 2) ? "9px" : "10px"; })
       .style("font-weight", "bold")
       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : ""; })
-      .attr("dx", function (d) { return (d.depth == 1) ? 75 : 230; }) // margin
+      .attr("dx", function (d) { return (d.depth == 1) ? 75 : 300; }) // margin
       .attr("dy", ".35em") // vertical-align
       .text(function (d) { return d.depth == 2 ? "-" + d.name.toUpperCase() : ""; })
       .on("mouseover", mouseover)
@@ -133,11 +133,11 @@ d3.json("./data/testSungraph.json", function (theData) {
       .enter().append("text")
       .style("fill", "#fff")
       .style("font-size", "12px")
-      .attr("dy", function (d) { return "11" }) //Move the text down
+      .attr("dy", function (d) { return "12" }) //Move the text down
       .append("textPath")
       .attr("xlink:href", function (d, i) { return "#" + d.name; })
       .attr("startOffset", function (d) {
-        return "05%";
+        return "02%";
       })
       .text(function (d) {
         var name;
@@ -173,7 +173,6 @@ d3.json("./data/testSungraph.json", function (theData) {
       .attr("dx", function (d) { return getTechCircleData(d, 0); })
       .attr("dy", function (d) { return getTechCircleData(d, 1); })
 
-
     var techInvisiblecircle = vis.selectAll("techInvisibleCircle")
       .data(technologies)
       .enter().append("svg:circle")
@@ -193,13 +192,11 @@ d3.json("./data/testSungraph.json", function (theData) {
       .text(function (d) { return d.label; })
       .style("font-size", "12px")
       .style("font-weight", "bold")
-      .attr("x", "2")
+      .attr("x", "1")
       .attr("y", "3")
       .attr("dx", function (d) { return d.dx; })
       .attr("dy", function (d) { return d.dy; });
   };
-
-
 
   // Fade all but the current sequence.
   function mouseover(d) {
@@ -213,7 +210,6 @@ d3.json("./data/testSungraph.json", function (theData) {
     d3.select("#explanation")
       .style("visibility", "");
   }
-
 
   // Restore everything to full opacity when moving off the visualization.
   function mouseleave(d) {
@@ -244,13 +240,13 @@ d3.json("./data/testSungraph.json", function (theData) {
   //calculate the position of bubble
   function getTechCircleData(d, i) {
     if (d.maturation <= startYear) {
-      return arc.centroid(d)[i] * (0.25 + 0.0332 * 1);
+      return arc.centroid(d)[i] * 1.5;
     }
     else if (d.maturation > endYear) {
       return arc.centroid(d)[i] * 1.080;
     }
     else {
-      return arc.centroid(d)[i] * (0.25 + 0.0332 * (d.maturation - baseYear));
+      return arc.centroid(d)[i] * (0.17 + 0.0132 * (d.maturation - baseYear + 1)); //Year
     }
   }
 
