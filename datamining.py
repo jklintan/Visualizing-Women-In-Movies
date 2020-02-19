@@ -120,14 +120,16 @@ for entries in strippedData:
     #print(entries)
     for items in extraInfo['movies']:
         matchingID = items['imdbID']
+        entries['income'] = '-1'
+        entries['bechdel'] = 'N/A'
         if matchingID == currentID:
             #print("MATCH")
             numbMatches = numbMatches + 1
             entries['bechdel'] = items['bechdel']
             entries['income'] = items['income']
+            break
         else:
-            entries['income'] = '-1'
-            entries['bechdel'] = 'N/A'
+
             noInfo = noInfo + 1
 
 #print(numbMatches)

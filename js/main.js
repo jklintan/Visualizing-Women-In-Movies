@@ -225,6 +225,7 @@ d3.json("./data/processedData.json", function (theData) {
       console.log(d.bechdel)
     d3.select("#explanation")
       .style("visibility", "");
+    d3.selectAll(circle)
   }
 
   // Restore everything to full opacity when moving off the visualization.
