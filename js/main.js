@@ -87,8 +87,8 @@ d3.json("./data/processedData.json", function (theData) {
       .data(yearRing)
       .enter().append("svg:circle")
       .attr("r", function (d) { return d.x; })
-      .style("fill", function (d, i) { return (i == yearRing.length - 1) ? "#fff" : "#f0f0f0"; })
-      .style('stroke', '#fff')
+      .style("fill", function (d, i) { return (i == yearRing.length - 1) ? "#000" : "#000"; })
+      .style('stroke', '#fff') //Colors of round borders
       .style("stroke-width", 1.5);
 
     var path = vis.selectAll("path")
