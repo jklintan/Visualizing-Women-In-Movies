@@ -1,0 +1,17 @@
+body, html{
+    background-color: black !important;
+}
+
+
+.card{
+    border: none !important;
+}
+
+.card-header{
+    background-color: black !important;
+    color: white !important; 
+}
+
+.card-body{
+    background-color: black;
+}
