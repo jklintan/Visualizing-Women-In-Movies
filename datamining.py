@@ -52,6 +52,9 @@ with open('./data/imdb_data.json') as json_file:
         #Fix years that have a span
         if len(item['Year']) > 4:
             item['Year'] = item['Year'][:4]
+
+        if int(item['Year']) < 1970:
+            continue
         
         item['PosterImage'] = item['imdbID'] + '.jpg'
         filePath = './data/images/' + item['PosterImage']
