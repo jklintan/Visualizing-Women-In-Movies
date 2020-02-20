@@ -19,8 +19,8 @@
                     "PosterImage": "tt0468569.jpg",
                     "id": 6,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "1002891358",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Lord of the Rings: The Fellowship of the Ring",
@@ -35,8 +35,8 @@
                     "PosterImage": "tt0120737.jpg",
                     "id": 10,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "887217688",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Lord of the Rings: The Return of the King",
@@ -51,8 +51,8 @@
                     "PosterImage": "tt0167260.jpg",
                     "id": 11,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "1141408667",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Lord of the Rings: The Two Towers",
@@ -67,8 +67,8 @@
                     "PosterImage": "tt0167261.jpg",
                     "id": 13,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "927048984",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Star Wars: Episode V - The Empire Strikes Back",
@@ -83,8 +83,8 @@
                     "PosterImage": "tt0080684.jpg",
                     "id": 14,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "534171960",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Inception",
@@ -99,8 +99,8 @@
                     "PosterImage": "tt1375666.jpg",
                     "id": 18,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "832584416",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Star Wars: Episode IV - A New Hope",
@@ -115,8 +115,8 @@
                     "PosterImage": "tt0076759.jpg",
                     "id": 21,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "797900000",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Matrix",
@@ -131,8 +131,8 @@
                     "PosterImage": "tt0133093.jpg",
                     "id": 23,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "460279930",
+                    "bechdel": 1
                 },
                 {
                     "Title": "The Dark Knight Rises",
@@ -147,8 +147,8 @@
                     "PosterImage": "tt1345836.jpg",
                     "id": 30,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "1079343943",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Raiders of the Lost Ark",
@@ -163,8 +163,8 @@
                     "PosterImage": "tt0082971.jpg",
                     "id": 32,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "389925971",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Saving Private Ryan",
@@ -179,8 +179,8 @@
                     "PosterImage": "tt0120815.jpg",
                     "id": 33,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "485035085",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Das Boot",
@@ -195,8 +195,8 @@
                     "PosterImage": "tt0082096.jpg",
                     "id": 46,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "84970337",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Terminator 2: Judgment Day",
@@ -211,8 +211,8 @@
                     "PosterImage": "tt0103064.jpg",
                     "id": 48,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "516816151",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Aliens",
@@ -227,8 +227,8 @@
                     "PosterImage": "tt0090605.jpg",
                     "id": 56,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "183316455",
+                    "bechdel": 1
                 },
                 {
                     "Title": "Gladiator",
@@ -243,8 +243,8 @@
                     "PosterImage": "tt0172495.jpg",
                     "id": 58,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "457683805",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Braveheart",
@@ -259,8 +259,8 @@
                     "PosterImage": "tt0112573.jpg",
                     "id": 62,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "209000000",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Star Wars: Episode VI - Return of the Jedi",
@@ -275,8 +275,8 @@
                     "PosterImage": "tt0086190.jpg",
                     "id": 67,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "572700000",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Ran",
@@ -307,8 +307,8 @@
                     "PosterImage": "tt0097576.jpg",
                     "id": 90,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "474171806",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Heat",
@@ -339,8 +339,8 @@
                     "PosterImage": "N/A",
                     "id": 100,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "139109346",
+                    "bechdel": 1
                 }
             ]
         },
@@ -361,8 +361,8 @@
                     "PosterImage": "tt1853728.jpg",
                     "id": 45,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "425373688",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Back to the Future",
@@ -377,8 +377,8 @@
                     "PosterImage": "tt0088763.jpg",
                     "id": 50,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "383874862",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Lagaan: Once Upon a Time in India",
@@ -425,8 +425,8 @@
                     "PosterImage": "tt0071853.jpg",
                     "id": 79,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "5028948",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Inglourious Basterds",
@@ -441,8 +441,8 @@
                     "PosterImage": "N/A",
                     "id": 84,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "316971720",
+                    "bechdel": 0
                 }
             ]
         },
@@ -479,8 +479,8 @@
                     "PosterImage": "tt0110357.jpg",
                     "id": 41,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "952880140",
+                    "bechdel": 0
                 },
                 {
                     "Title": "WALL·E",
@@ -495,8 +495,8 @@
                     "PosterImage": "tt0910970.jpg",
                     "id": 49,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "532590994",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Toy Story 3",
@@ -511,8 +511,8 @@
                     "PosterImage": "tt0435761.jpg",
                     "id": 57,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "1063759456",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Princess Mononoke",
@@ -527,8 +527,8 @@
                     "PosterImage": "tt0119698.jpg",
                     "id": 60,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "150350000",
+                    "bechdel": 1
                 },
                 {
                     "Title": "My Neighbor Totoro",
@@ -565,8 +565,8 @@
                     "PosterImage": "tt0108052.jpg",
                     "id": 12,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "321365567",
+                    "bechdel": 1
                 },
                 {
                     "Title": "Goodfellas",
@@ -581,8 +581,8 @@
                     "PosterImage": "tt0099685.jpg",
                     "id": 15,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "46743809",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Intouchables",
@@ -613,8 +613,8 @@
                     "PosterImage": "N/A",
                     "id": 52,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "365702857",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Edvard Munch",
@@ -645,8 +645,8 @@
                     "PosterImage": "tt0086879.jpg",
                     "id": 75,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "51973029",
+                    "bechdel": 1
                 },
                 {
                     "Title": "Temple Grandin",
@@ -677,8 +677,8 @@
                     "PosterImage": "N/A",
                     "id": 99,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "158607035",
+                    "bechdel": 0
                 }
             ]
         },
@@ -795,8 +795,8 @@
                     "PosterImage": "N/A",
                     "id": 63,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "83593107",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Sting",
@@ -811,8 +811,8 @@
                     "PosterImage": "tt0070735.jpg",
                     "id": 70,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "159616327",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Kin-dza-dza!",
@@ -865,8 +865,8 @@
                     "PosterImage": "tt0111161.jpg",
                     "id": 1,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "28241469",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Godfather",
@@ -881,8 +881,8 @@
                     "PosterImage": "tt0068646.jpg",
                     "id": 3,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "268500000",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Godfather: Part II",
@@ -897,8 +897,8 @@
                     "PosterImage": "tt0071562.jpg",
                     "id": 4,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "57300000",
+                    "bechdel": 1
                 },
                 {
                     "Title": "Pulp Fiction",
@@ -913,8 +913,8 @@
                     "PosterImage": "tt0110912.jpg",
                     "id": 7,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "212928762",
+                    "bechdel": 1
                 },
                 {
                     "Title": "The Usual Suspects",
@@ -929,8 +929,8 @@
                     "PosterImage": "tt0114814.jpg",
                     "id": 19,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "34449356",
+                    "bechdel": 0
                 },
                 {
                     "Title": "City of God",
@@ -961,8 +961,8 @@
                     "PosterImage": "tt0114369.jpg",
                     "id": 22,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "328125643",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Léon: The Professional",
@@ -993,8 +993,8 @@
                     "PosterImage": "tt0102926.jpg",
                     "id": 34,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "275726716",
+                    "bechdel": 1
                 },
                 {
                     "Title": "American History X",
@@ -1009,8 +1009,8 @@
                     "PosterImage": "tt0120586.jpg",
                     "id": 35,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "6719864",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Green Mile",
@@ -1025,8 +1025,8 @@
                     "PosterImage": "tt0120689.jpg",
                     "id": 51,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "290701374",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Departed",
@@ -1041,8 +1041,8 @@
                     "PosterImage": "tt0407887.jpg",
                     "id": 53,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "290539042",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Reservoir Dogs",
@@ -1057,8 +1057,8 @@
                     "PosterImage": "tt0105236.jpg",
                     "id": 68,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "2832029",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Taxi Driver",
@@ -1073,8 +1073,8 @@
                     "PosterImage": "tt0075314.jpg",
                     "id": 73,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "28262574",
+                    "bechdel": 0
                 },
                 {
                     "Title": "A Clockwork Orange",
@@ -1105,8 +1105,8 @@
                     "PosterImage": "tt0119488.jpg",
                     "id": 93,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "110604977",
+                    "bechdel": 0
                 }
             ]
         },
@@ -1197,8 +1197,8 @@
                     "PosterImage": "tt0137523.jpg",
                     "id": 9,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "100853753",
+                    "bechdel": 0
                 },
                 {
                     "Title": "One Flew Over the Cuckoo's Nest",
@@ -1213,8 +1213,8 @@
                     "PosterImage": "tt0073486.jpg",
                     "id": 16,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "108981275",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Forrest Gump",
@@ -1229,8 +1229,8 @@
                     "PosterImage": "tt0109830.jpg",
                     "id": 17,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "679400525",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Rang De Basanti",
@@ -1245,8 +1245,8 @@
                     "PosterImage": "N/A",
                     "id": 28,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "29197694",
+                    "bechdel": 1
                 },
                 {
                     "Title": "The Lives of Others",
@@ -1261,8 +1261,8 @@
                     "PosterImage": "tt0405094.jpg",
                     "id": 36,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "81197047",
+                    "bechdel": 0
                 },
                 {
                     "Title": "The Prestige",
@@ -1277,8 +1277,8 @@
                     "PosterImage": "tt0482571.jpg",
                     "id": 38,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "107896006",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Cinema Paradiso",
@@ -1309,8 +1309,8 @@
                     "PosterImage": "tt0169547.jpg",
                     "id": 40,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "356258047",
+                    "bechdel": 1
                 },
                 {
                     "Title": "Apocalypse Now",
@@ -1325,8 +1325,8 @@
                     "PosterImage": "tt0078788.jpg",
                     "id": 47,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "78800000",
+                    "bechdel": 0
                 },
                 {
                     "Title": "A Separation",
@@ -1421,8 +1421,8 @@
                     "PosterImage": "tt0180093.jpg",
                     "id": 76,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "7390108",
+                    "bechdel": 1
                 },
                 {
                     "Title": "Eternal Sunshine of the Spotless Mind",
@@ -1437,8 +1437,8 @@
                     "PosterImage": "tt0338013.jpg",
                     "id": 78,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "72993444",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Exit 117",
@@ -1485,8 +1485,8 @@
                     "PosterImage": "N/A",
                     "id": 83,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "33139618",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Raise the Red Lantern",
@@ -1517,8 +1517,8 @@
                     "PosterImage": "N/A",
                     "id": 87,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "687185",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Her",
@@ -1533,8 +1533,8 @@
                     "PosterImage": "N/A",
                     "id": 88,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "33029713",
+                    "bechdel": 0
                 },
                 {
                     "Title": "Pan's Labyrinth",
@@ -1549,8 +1549,8 @@
                     "PosterImage": "N/A",
                     "id": 91,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "87041569",
+                    "bechdel": 1
                 },
                 {
                     "Title": "The Jewel in the Crown",
@@ -1603,8 +1603,8 @@
                     "PosterImage": "tt0078748.jpg",
                     "id": 43,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "203630630",
+                    "bechdel": 1
                 },
                 {
                     "Title": "The Shining",
@@ -1619,8 +1619,8 @@
                     "PosterImage": "tt0081505.jpg",
                     "id": 44,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "44017374",
+                    "bechdel": 0
                 }
             ]
         },
@@ -1641,8 +1641,8 @@
                     "PosterImage": "tt0209144.jpg",
                     "id": 29,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "39723096",
+                    "bechdel": 0
                 }
             ]
         },
@@ -1663,8 +1663,8 @@
                     "PosterImage": "N/A",
                     "id": 2,
                     "impact": 3,
-                    "income": "-1",
-                    "bechdel": "N/A"
+                    "income": "120918508",
+                    "bechdel": 1
                 }
             ]
         }

@@ -13,5 +13,41 @@ body, html{
 }
 
 .card-body{
+    background-color: black !important;
+    margin: auto !important;
+}
+
+#vis{
+    width: 1200px;
+}
+
+
+svg{
+    width: 1200px;
+}
+
+#legendfloat{
+    z-index: 2;
+    margin:auto;
+    text-align: center !important;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 2;
+    position: absolute;
+}
+
+#myLegend{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
     background-color: black;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 525px;
+    top: 325px;
+    position: absolute;
+    z-index: 2;
+    border: 2px solid white;
 }

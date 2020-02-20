@@ -17,7 +17,7 @@ d3.json("./data/processedData.json", function (theData) {
   };
 
   // Dimensions of starburst.
-  var width = 800;
+  var width =  1200;
   var height = 800;
   var radius = Math.min(width, height) / 2.67;
   var startYear = 1960;
@@ -211,6 +211,8 @@ d3.json("./data/processedData.json", function (theData) {
       .attr("dy", function (d) { return d.dy; });
   };
 
+  var x = document.getElementById("myLegend");
+
    // Fade all but the current sequence.
    function mouseover(d) {
     d3.select(this).style("cursor", "pointer");
@@ -225,8 +227,13 @@ d3.json("./data/processedData.json", function (theData) {
       console.log(d.bechdel)
     d3.select("#explanation")
       .style("visibility", "");
-    d3.selectAll(circle)
-      
+    
+    var elem = document.getElementById('myLegend')
+    elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")";
+    elem.style.width = "150px";
+    elem.style.height = "150px";
+    elem.style.borderRadius = "50%";
+    elem.style.color = "black";
   }
 
   // Restore everything to full opacity when moving off the visualization.
