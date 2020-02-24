@@ -25,7 +25,7 @@ d3.json("./data/processedData.json", function (theData) {
   var baseYear = startYear - 1;
   var yearRing = [{ x: 298, y: 298 }, { x: 264, y: 264 }, { x: 230, y: 230 }, { x: 196, y: 196 }, { x: 162, y: 162 }, { x: 128, y: 128 }, { x: 94, y: 94 }, { x: 60, y: 60 }];
   var maturationYearTextData = [{ dx: -14, dy: -94, label: "1970" }, { dx: -14, dy: -128, label: "1980" }, { dx: -14, dy: -162, label: "1990" }, { dx: -14, dy: -196, label: "2000" }, { dx: -14, dy: -230, label: "2010" }, { dx: -14, dy: -264, label: "2020" }];
-
+  var legend = document.getElementById("legend");
 
   var vis = d3.select("#vis").append("svg:svg")
     .attr("width", width)
@@ -152,16 +152,17 @@ d3.json("./data/processedData.json", function (theData) {
       var techCircle = vis.selectAll("techCircle")
       .data(technologies)
       .enter().append("svg:circle")
+      .attr("opacity", 0.7)
       .attr("id", function (d) { return "techcircle" + d.name; })
       .attr("cx", function (d) { return getTechCircleData(d, 0); })
       .attr("cy", function (d) { return getTechCircleData(d, 1); })
       .attr("r", function(d){ //Radius of circles
          if(d.income > 200918508){
-           return 5;
+           return 10;
          }else if(d.income == "-1"){
-           return 2;
+           return 5;
          }
-         return 3.5;
+         return 7;
       })
       //3.5)
       .style("fill", function (d) {
@@ -211,51 +212,91 @@ d3.json("./data/processedData.json", function (theData) {
       .attr("dy", function (d) { return d.dy; });
   };
 
-  var x = document.getElementById("myLegend");
+  var x = document.getElementById("centerImage");
 
-   // Fade all but the current sequence.
-   function mouseover(d) {
+  function mouseover(d) {
     d3.select(this).style("cursor", "pointer");
-    d3.select("#technology")
-      .text(d.Title.toUpperCase());
-      console.log(d.Title);
-    d3.select("#maturationText")
-      .text(d.Year);
-      console.log(d.Year);
-    d3.select("#associationText")
-      .text(d.association);
-      console.log(d.bechdel)
-    d3.select("#explanation")
-      .style("visibility", "");
+    console.log("hovering");
+     console.log(d.Title);
+   //   console.log(d.Year);
+   //   console.log(d.bechdel)
     
-    var elem = document.getElementById('myLegend')
+    var elem = document.getElementById('centerImage')
     elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")";
     elem.style.width = "150px";
     elem.style.height = "150px";
     elem.style.borderRadius = "50%";
     elem.style.color = "black";
+
+    legend.style.visibility = "visible";
+    var textTitle = d.Title.toUpperCase();
+    var titlen = document.getElementsByTagName("h1");
+    var legendTitle = document.getElementById("legendHead");
+
+    if(titlen.length == 0){
+      var titlen = document.createElement("h1");
+      titlen.append(textTitle);
+      legendTitle.append(titlen);     
+    }else{
+      titlen[0].append(textTitle);
+    }
+
+    var bechdelInfo = document.getElementsByClassName("bechdelInfo")
+    if(d.bechdel == "1"){
+      bechdelInfo[0].append("Passes bechdel test");    
+    }else if(d.bechdel == "0"){
+      bechdelInfo[0].append("Do not pass the bechdel test");   
+    }else{
+      bechdelInfo[0].append("Bechdel data do not exist");   
+    }
+
+
+
+    var coordinates= d3.mouse(this);
+    var posMargin = (width/2 + Math.floor(coordinates[0])) + 10;
+    var posMargin2 = (height/2 + Math.floor(coordinates[1])) + 10;
+    //legend.style.margin =  posMargin2 + "px " + posMargin + "px " ;
+    // legend.translate.x = posMargin;
+    legend.style.marginTop = posMargin2 + "px";
+    legend.style.marginLeft = posMargin + "px";
+    //legend.style.margin = posMargin + "px";
   }
+
+
+
 
   // Restore everything to full opacity when moving off the visualization.
   function mouseleave(d) {
+    console.log("Not hovering");
     d3.select(this).style("cursor", "default");
-    // Deactivate all segments during transition.
-    d3.selectAll('[id^="techInvisibleCircle"]').on("mouseover", null);
-    d3.selectAll('[id^="technologyText"]').on("mouseover", null);
-    // Transition each segment to full opacity and then reactivate it.
-    d3.selectAll('[id^="techInvisibleCircle"]').transition()
-      .duration(10)
-      .each("end", function () {
-        d3.select(this).on("mouseover", mouseover);
-      });
-    // Transition each segment to full opacity and then reactivate it.
-    d3.selectAll('[id^="technologyText"]').transition()
-      .duration(10)
-      .each("end", function () {
-        d3.select(this).on("mouseover", mouseover);
-      });
-    d3.select("#explanation")
-      .style("visibility", "hidden");
+    var legenden = document.getElementById("legend");
+    legenden.getElementsByTagName('h1')[0].innerHTML = "";
+    legenden.style.marginTop =  "0";
+    legenden.style.marginLeft = "0";
+    legenden.style.visibility = "hidden";
+
+    var bechdelInfo = document.getElementsByClassName("bechdelInfo")
+    bechdelInfo[0].innerHTML = "";    
+
+
+    // // Deactivate all segments during transition.
+    // d3.selectAll('[id^="techInvisibleCircle"]').on("mouseover", null);
+    // d3.selectAll('[id^="technologyText"]').on("mouseover", null);
+    // // Transition each segment to full opacity and then reactivate it.
+    // d3.selectAll('[id^="techInvisibleCircle"]').transition()
+    //   .duration(10)
+    //   .each("end", function () {
+    //     d3.select(this).on("mouseover", mouseover);
+    //   });
+    // // Transition each segment to full opacity and then reactivate it.
+    // d3.selectAll('[id^="technologyText"]').transition()
+    //   .duration(10)
+    //   .each("end", function () {
+    //     d3.select(this).on("mouseover", mouseover);
+    //   });
+    // d3.select("#explanation")
+    //   .style("visibility", "hidden");
+    
   }
   //calculate rotation angle of text
   function computeTextRotation(d) {

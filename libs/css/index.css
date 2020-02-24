@@ -36,7 +36,7 @@ svg{
     position: absolute;
 }
 
-#myLegend{
+#centerImage{
     display: inline-block;
     width: 150px;
     height: 150px;
@@ -50,4 +50,26 @@ svg{
     position: absolute;
     z-index: 2;
     border: 2px solid white;
+}
+
+#legend h1{
+    font-size: 14px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#legend{
+    height: 100px;
+    width: 200px;
+    background-color: white !important;
+    border: 2px solid black;
+    border-radius: 10px;
+    opacity: 0.8;
+    z-index: 3 !important;
+    position: absolute;
+    visibility: hidden;
+}
+
+p .bechdelInfo{
+    
 }
