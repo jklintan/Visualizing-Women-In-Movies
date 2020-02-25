@@ -4,16 +4,20 @@ d3.json("./data/processedData.json", function (theData) {
  var chartData = theData;
 
   var colors = {
-    "Comedy": "#d30000",
-    "Romance": "#ed5b00",
-    "Horror": "#ff8a00",
-    "Action": "#a5be00",
-    "Adventure": "#007600",
-    "Sci-fi": "#00a9e8",
-    "Drama": "#006395",
-    "Thriller": "#8d6fff",
-    "Fantasy": "#77005c",
+    "Comedy": "#c56290",
+    "Romance": "#c56290",
+    "Horror": "#c56290",
+    "Action": "#c56290",
+    "Adventure": "#c56290",
+    "Sci-fi": "#c56290",
+    "Drama": "#c56290",
+    "Thriller": "#c56290",
+    "Fantasy": "#c56290",
     "Animation": "#c56290",
+    "Documentary": "#c56290",
+    "Mystery": "#c56290",
+    "Biography": "#c56290",
+    "Crime": "#c56290",
   };
 
   // Dimensions of starburst.
@@ -40,19 +44,19 @@ d3.json("./data/processedData.json", function (theData) {
 
   var arc = d3.svg.arc()
     .startAngle(function (d) { return d.x; })
-    .endAngle(function (d) { return d.x + d.dx; })
+    .endAngle(function (d) { return d.x; })
     .innerRadius(function (d) {
       if (d.depth == 1) {
         return 60;
       } else {
-        return Math.sqrt(d.y) + 70;
+        return Math.sqrt(d.y) + 140;
       }
     })
     .outerRadius(function (d) {
       if (d.depth == 2) {
         return Math.sqrt(d.y + d.dy);
       } else {
-        return Math.sqrt(d.y + d.dy) + 70;
+        return Math.sqrt(d.y + d.dy) + 140;
       }
     });
 
@@ -102,7 +106,7 @@ d3.json("./data/processedData.json", function (theData) {
       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : "transparent"; })
       .style("opacity", 1)
       .style('stroke', function (d) { return (d.depth == 2) ? colors[d.parent.name] : "#fff"; })
-      .style("stroke-width", 1.5);
+      .style("stroke-width", 1.2);
 
     var maturationYear = vis.selectAll("ellipse")
       .data([{ cx: 0, cy: -94 }, { cx: 0, cy: -128 }, { cx: 0, cy: -162 }, { cx: 0, cy: -196 }, { cx: 0, cy: -230 }, { cx: 0, cy: -264 }])
@@ -117,7 +121,7 @@ d3.json("./data/processedData.json", function (theData) {
     var technologyText = vis.selectAll("technologyText")
       .data(nodes)
       .enter().append("text")
-      .attr("id", function (d) { return "technologyText" + d.name; })
+      .attr("id", function (d) { return "technologyText" + d.Genre; })
       .attr("transform", function (d) { return "rotate(" + computeTextRotation(d) + ")"; })
       .attr("x", "6")
       .style("font-size", function (d) { return (d.depth == 2) ? "9px" : "10px"; })
@@ -129,18 +133,30 @@ d3.json("./data/processedData.json", function (theData) {
       // .on("mouseover", mouseover)
       // .on("mouseleave", mouseleave);
 
+    var romanceText = vis.selectAll("path")
+    romanceText = romanceText[0];
+
+    for(var i = 0; i < romanceText.length; i++){
+      if(romanceText[i].id == "Romance"){
+        var pathRomance = romanceText[i];
+      }
+    }
+
+    console.log(pathRomance.getAttribute("d"));
+
+
     var categoryText = vis.selectAll("categoryText")
       .data(nodes)
       .enter().append("text")
-      .style("fill", "#fff")
-      .style("font-size", "8px")
-      .style("width", "10px")
+      .style("fill", "#ccc")
+      .style("font-size", "15px")
+      .style("width", "50px")
       .style("height", "10px")
-      .attr("dy", function (d) { return "-30" }) //Move the text down
+      .attr("dy", function (d) { return "15" }) //Move the text down
       .append("textPath")
       .attr("xlink:href", function (d, i) { return "#" + d.name; })
       .attr("startOffset", function (d) {
-        return "02%";
+        return "0%";
       })
       .text(function (d) {
         var name;
@@ -150,7 +166,8 @@ d3.json("./data/processedData.json", function (theData) {
           name = "";
         }
         return name.toUpperCase();
-      });
+      })
+      ;
 
       var techCircle = vis.selectAll("techCircle")
       .data(technologies)
