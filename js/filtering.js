@@ -12,14 +12,17 @@ if (c == "all"){ //Display all elements
   for (i = 0; i < fails.length; i++) {
     // fails[i].style.visibility = "visible";
     fails[i].style.fill = "#fff";
+    fails[i].style.opacity = "0.5";
   }
   for (i = 0; i < pass.length; i++) {
     // pass[i].style.visibility = "visible";
     pass[i].style.fill = "#fff";
+    pass[i].style.opacity = "0.5";
   }
   for (i = 0; i < unknown.length; i++) {
     //unknown[i].style.visibility = "visible";
     unknown[i].style.fill = "#fff";
+    unknown[i].style.opacity = "0.5";
   }
 }else if(c == "0"){
     for (i = 0; i < fails.length; i++) {

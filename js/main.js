@@ -3,6 +3,9 @@ d3.json("./data/processedData.json", function (theData) {
   
  var chartData = theData;
 
+ var elem = document.getElementById('centerImage');
+    elem.style.backgroundImage = "url(./centerIm3.png)";
+
   var colors = {
     "Comedy": "#c56290",
     "Romance": "#c56290",
@@ -104,8 +107,8 @@ d3.json("./data/processedData.json", function (theData) {
       .attr("fill-rule", "evenodd")
       .attr("id", function (d) { return d.name })
       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : "transparent"; })
-      .style("opacity", 1)
-      .style('stroke', function (d) { return (d.depth == 2) ? colors[d.parent.name] : "#fff"; })
+      .style("opacity", 0.4)
+      .style('stroke', function (d) { return (d.depth == 2) ? "#826b57" : "#fff"; }) //colors[d.parent.name] : "#fff"; }) //color on the peaks
       .style("stroke-width", 1.2);
 
     var maturationYear = vis.selectAll("ellipse")
@@ -115,6 +118,7 @@ d3.json("./data/processedData.json", function (theData) {
       .attr("cy", function (d) { return d.cy; })
       .attr("rx", 20)
       .attr("ry", 12)
+      .style("opacity", 0.7)
       .style("fill", "#fff");
 
 
@@ -129,7 +133,7 @@ d3.json("./data/processedData.json", function (theData) {
       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : ""; })
       .attr("dx", function (d) { return (d.depth == 1) ? 75 : 300; }) // margin
       .attr("dy", ".35em") // vertical-align
-      .text(function (d) { return d.depth == 2 ? "-" : "";}) // + d.Title.toUpperCase() : ""; })
+      .text(function (d) { return d.depth == 2 ? "" : "";}) // + d.Title.toUpperCase() : ""; })
       // .on("mouseover", mouseover)
       // .on("mouseleave", mouseleave);
 
@@ -142,13 +146,12 @@ d3.json("./data/processedData.json", function (theData) {
       }
     }
 
-    console.log(pathRomance.getAttribute("d"));
 
 
     var categoryText = vis.selectAll("categoryText")
       .data(nodes)
       .enter().append("text")
-      .style("fill", "#ccc")
+      .style("fill", "red")
       .style("font-size", "15px")
       .style("width", "50px")
       .style("height", "10px")
@@ -172,7 +175,7 @@ d3.json("./data/processedData.json", function (theData) {
       var techCircle = vis.selectAll("techCircle")
       .data(technologies)
       .enter().append("svg:circle")
-      .attr("opacity", 0.7)
+      .attr("opacity", 0.5)
 
       .attr("id", function (d) {
         return "techcircle" + d.Title; })
@@ -220,7 +223,7 @@ d3.json("./data/processedData.json", function (theData) {
     var techInvisiblecircle = vis.selectAll("techInvisibleCircle")
       .data(technologies)
       .enter().append("svg:circle")
-      .attr("opacity", 0.7)
+      .attr("opacity", 0.5)
       .attr("border", "none")
       .attr("class", function (d) { 
         return d.Genre; })
@@ -238,7 +241,7 @@ d3.json("./data/processedData.json", function (theData) {
         return 6;
      })
       .style("fill", "transparent")
-      .style("strok", "#fff")
+      .style("stroke", "#fff")
       .on("mouseover", mouseover)
       .on("mouseleave", mouseleave);
 
@@ -272,7 +275,6 @@ d3.json("./data/processedData.json", function (theData) {
    saveIt.style.opacity = "1.0"
 
 
-
     var elem = document.getElementById('centerImage')
     elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")"; //If local version
     //elem.style.backgroundImage = "url(https://github.com/jklintan/Visualizing-Women-In-Movies/blob/master/data/images/" + d.PosterImage + ")"; //If online version
@@ -296,11 +298,14 @@ d3.json("./data/processedData.json", function (theData) {
 
     var bechdelInfo = document.getElementsByClassName("bechdelInfo")
     if(d.bechdel == "1"){
-      bechdelInfo[0].append("Passes bechdel test");    
+      bechdelInfo[0].append("Passes bechdel test");
+      legend.style.backgroundColor = "green";    
     }else if(d.bechdel == "0"){
       bechdelInfo[0].append("Do not pass the bechdel test");   
+      legend.style.backgroundColor = "red"; 
     }else{
       bechdelInfo[0].append("Bechdel data do not exist");   
+      legend.style.backgroundColor = "white"; 
     }
 
 
@@ -332,7 +337,7 @@ d3.json("./data/processedData.json", function (theData) {
 
 
     var elem = document.getElementById('centerImage');
-    elem.style.backgroundImage = "none";
+    elem.style.backgroundImage = "url(./centerIm3.png)";
 
 
     var currentCircle = document.getElementsByTagName("circle");
@@ -343,7 +348,7 @@ d3.json("./data/processedData.json", function (theData) {
       }
     }
  
-    saveIt.style.opacity = "0.7";
+    saveIt.style.opacity = "0.5";
     
   }
   //calculate rotation angle of text
