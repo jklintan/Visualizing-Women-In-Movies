@@ -6,20 +6,27 @@
         <link rel="stylesheet" href="libs/css/index.css" />
         <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet.css" />
-        <style>
-            font-color{
-                color: white;
-            }
-        </style>
     </head>
 
     <body class="container-fluid">
         <div class="card text-center">
-            <div class="card-header">
-                <h2>Visualizing Women in Movies</h2>
-            </div>
+           
 
             <div class="card-body">
+                <div class="card-header">
+                    <h2>Movie universe</h2>
+                    <p>This is the part where we talk a bit about ourselves and the data we have.</p>
+                    <p>I'm baby jean shorts hella tattooed, biodiesel portland iceland yuccie gentrify shabby chic butcher cloud bread post-ironic YOLO. Copper mug kombucha pug next level fingerstache pork belly hot chicken. Banh mi mumblecore DIY literally master cleanse. Tilde tumblr yuccie, enamel pin organic blue bottle seitan af blog four dollar toast jianbing fixie. Artisan prism keytar cardigan microdosing. Vice kickstarter freegan neutra post-ironic church-key blue bottle. Tilde wayfarers snackwave intelligentsia man braid crucifix live-edge waistcoat truffaut street art quinoa.</p>
+                    
+                    <!-- Filtering -->
+                    <div id="buttons">
+                        <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                        <button class="btn" onclick="filterSelection('1')"> Bechdel pass</button>
+                        <button class="btn" onclick="filterSelection('0')"> Bechdel fail</button>
+                        <button class="btn" onclick="filterSelection('N/A')"> Bechdel data unknown</button>
+                      </div>
+                
+                </div>
                 <div id="legend">
                     <div id="legendHead"></div>
                     <p class="bechdelInfo"></p>
@@ -38,10 +45,13 @@
         </div>
     </body>
 
+    <script type="text/javascript" src="./js/filtering.js"></script>
     <script type="text/javascript" src="libs/jquery/jquery.min.js"></script>
     <script type="text/javascript" src="libs/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="libs/d3/d3.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.4.0/leaflet-src.js"></script>
+
+
 
     <!-- Scripts -->
 

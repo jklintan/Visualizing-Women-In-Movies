@@ -2,23 +2,53 @@ body, html{
     background-color: black !important;
 }
 
+.container-fluid{
+    background-color: black !important;
+}
 
 .card{
+    background-color: black !important;
     border: none !important;
 }
 
 .card-header{
-    background-color: black !important;
     color: white !important; 
+    text-align: left;
+    width: 20vw;
+    height: 100vh;
+    float: left;
+    margin-left: 0 !important;
+    position: absolute;
+    font-size: 13px;
+}
+
+svg{
+    margin-left: 400px !important;
+    margin: auto !important;
+    float: center !important;
+}
+
+#container{
+    margin-left: 100px !important;
+    margin: auto !important;
+    float: center;
+}
+
+h2{
+    font-size: 26px !important;
 }
 
 .card-body{
     background-color: black !important;
     margin: auto !important;
+    width: 80vw !important;
+    float: left;
+    margin-left: 10px !important;
 }
 
 #vis{
     width: 1200px;
+    margin-left: 10vw !important;
 }
 
 
@@ -74,3 +104,25 @@ svg{
 .bechdelInfo{
     font-size: 12px;
 }
+
+/* Filtering */
+.show {
+    display: block;
+  }
+  
+  .btn {
+    border: none;
+    outline: none;
+    padding: 12px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background-color: #ddd;
+  }
+  
+  .btn.active {
+    background-color: #666;
+    color: white;
+  }

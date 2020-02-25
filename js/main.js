@@ -86,10 +86,11 @@ d3.json("./data/processedData.json", function (theData) {
     var circle = vis.selectAll("circle")
       .data(yearRing)
       .enter().append("svg:circle")
-      .attr("r", function (d) { return d.x; })
+      .attr("r", function (d) {
+        return d.x; })
       .style("fill", function (d, i) { return (i == yearRing.length - 1) ? "#000" : "#000"; })
-      .style('stroke', '#fff') //Colors of round borders
-      .style("stroke-width", 1.5);
+      .style('stroke', '#c0c0c0') //Colors of round borders
+      .style("stroke-width", 1);
 
     var path = vis.selectAll("path")
       .data(nodes)
@@ -124,16 +125,18 @@ d3.json("./data/processedData.json", function (theData) {
       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : ""; })
       .attr("dx", function (d) { return (d.depth == 1) ? 75 : 300; }) // margin
       .attr("dy", ".35em") // vertical-align
-      .text(function (d) { return d.depth == 2 ? "-" + d.Title.toUpperCase() : ""; })
-      .on("mouseover", mouseover)
-      .on("mouseleave", mouseleave);
+      .text(function (d) { return d.depth == 2 ? "-" : "";}) // + d.Title.toUpperCase() : ""; })
+      // .on("mouseover", mouseover)
+      // .on("mouseleave", mouseleave);
 
     var categoryText = vis.selectAll("categoryText")
       .data(nodes)
       .enter().append("text")
       .style("fill", "#fff")
-      .style("font-size", "12px")
-      .attr("dy", function (d) { return "12" }) //Move the text down
+      .style("font-size", "8px")
+      .style("width", "10px")
+      .style("height", "10px")
+      .attr("dy", function (d) { return "-30" }) //Move the text down
       .append("textPath")
       .attr("xlink:href", function (d, i) { return "#" + d.name; })
       .attr("startOffset", function (d) {
@@ -153,27 +156,37 @@ d3.json("./data/processedData.json", function (theData) {
       .data(technologies)
       .enter().append("svg:circle")
       .attr("opacity", 0.7)
-      .attr("id", function (d) { return "techcircle" + d.name; })
+
+      .attr("id", function (d) {
+        return "techcircle" + d.Title; })
+      .attr("class", function (d) { 
+          return d.Title; })
+      .attr("class", function (d) { 
+          return toString(d.Genre); })
+      .attr("class", function (d) { 
+          return d.bechdel; })
       .attr("cx", function (d) { return getTechCircleData(d, 0); })
       .attr("cy", function (d) { return getTechCircleData(d, 1); })
       .attr("r", function(d){ //Radius of circles
          if(d.income > 200918508){
            return 10;
          }else if(d.income == "-1"){
-           return 5;
+           return 3;
          }
-         return 7;
+         return 6;
       })
       //3.5)
       .style("fill", function (d) {
-        var thecolor = "#ff0";
+        var thecolor = "#fff";
         if(d.bechdel == 1){
-          thecolor = "#0f0";
+          // thecolor = "#0f0";
+          theColor = "#fff"
         }
         if(d.bechdel == 0){
-          thecolor = "red"
+          // thecolor = "red"
+          theColor = "#fff"
         }
-        return d.depth < 1 ? "#C0C0C0" : thecolor; //colors[d.parent.name];
+        return d.depth < 1 ? "#fff" : thecolor; //colors[d.parent.name];
       });
 
     var techCircleText = vis.selectAll("techCircleText")
@@ -190,10 +203,23 @@ d3.json("./data/processedData.json", function (theData) {
     var techInvisiblecircle = vis.selectAll("techInvisibleCircle")
       .data(technologies)
       .enter().append("svg:circle")
+      .attr("opacity", 0.7)
+      .attr("border", "none")
+      .attr("class", function (d) { 
+        return d.Genre; })
+      .attr("class", function (d) { 
+        return d.bechdel; })
       .attr("id", function (d) { return "techInvisibleCircle" + d.name; })
       .attr("cx", function (d) { return getTechCircleData(d, 0); })
       .attr("cy", function (d) { return getTechCircleData(d, 1); })
-      .attr("r", 3.5)
+      .attr("r", function(d){ //Radius of circles
+        if(d.income > 200918508){
+          return 10;
+        }else if(d.income == "-1"){
+          return 3;
+        }
+        return 6;
+     })
       .style("fill", "transparent")
       .style("strok", "#fff")
       .on("mouseover", mouseover)
@@ -216,14 +242,23 @@ d3.json("./data/processedData.json", function (theData) {
 
   function mouseover(d) {
     d3.select(this).style("cursor", "pointer");
-    console.log("hovering");
-     console.log(d.Title);
-   //   console.log(d.Year);
-   //   console.log(d.bechdel)
-    
+
+  
+    //Change hover over current circle
+   var currentCircle = document.getElementsByTagName("circle");
+   for(var i = 0; i < currentCircle.length; i++){
+     if(currentCircle[i].id == "techcircle" + d.Title){
+       var saveIt = currentCircle[i];
+       break;
+     }
+   }
+   saveIt.style.opacity = "1.0"
+
+
+
     var elem = document.getElementById('centerImage')
-    //elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")"; //If local version
-    elem.style.backgroundImage = "url(https://github.com/jklintan/Visualizing-Women-In-Movies/blob/master/data/images/" + d.PosterImage + ")"; //If online version
+    elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")"; //If local version
+    //elem.style.backgroundImage = "url(https://github.com/jklintan/Visualizing-Women-In-Movies/blob/master/data/images/" + d.PosterImage + ")"; //If online version
     elem.style.width = "150px";
     elem.style.height = "150px";
     elem.style.borderRadius = "50%";
@@ -268,7 +303,6 @@ d3.json("./data/processedData.json", function (theData) {
 
   // Restore everything to full opacity when moving off the visualization.
   function mouseleave(d) {
-    console.log("Not hovering");
     d3.select(this).style("cursor", "default");
     var legenden = document.getElementById("legend");
     legenden.getElementsByTagName('h1')[0].innerHTML = "";
@@ -280,23 +314,19 @@ d3.json("./data/processedData.json", function (theData) {
     bechdelInfo[0].innerHTML = "";    
 
 
-    // // Deactivate all segments during transition.
-    // d3.selectAll('[id^="techInvisibleCircle"]').on("mouseover", null);
-    // d3.selectAll('[id^="technologyText"]').on("mouseover", null);
-    // // Transition each segment to full opacity and then reactivate it.
-    // d3.selectAll('[id^="techInvisibleCircle"]').transition()
-    //   .duration(10)
-    //   .each("end", function () {
-    //     d3.select(this).on("mouseover", mouseover);
-    //   });
-    // // Transition each segment to full opacity and then reactivate it.
-    // d3.selectAll('[id^="technologyText"]').transition()
-    //   .duration(10)
-    //   .each("end", function () {
-    //     d3.select(this).on("mouseover", mouseover);
-    //   });
-    // d3.select("#explanation")
-    //   .style("visibility", "hidden");
+    var elem = document.getElementById('centerImage');
+    elem.style.backgroundImage = "none";
+
+
+    var currentCircle = document.getElementsByTagName("circle");
+    for(var i = 0; i < currentCircle.length; i++){
+      if(currentCircle[i].id == "techcircle" + d.Title){
+        var saveIt = currentCircle[i];
+        break;
+      }
+    }
+ 
+    saveIt.style.opacity = "0.7";
     
   }
   //calculate rotation angle of text
