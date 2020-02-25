@@ -222,7 +222,8 @@ d3.json("./data/processedData.json", function (theData) {
    //   console.log(d.bechdel)
     
     var elem = document.getElementById('centerImage')
-    elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")";
+    //elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")"; //If local version
+    elem.style.backgroundImage = "url(https://github.com/jklintan/Visualizing-Women-In-Movies/blob/master/data/images/" + d.PosterImage + ")"; //If online version
     elem.style.width = "150px";
     elem.style.height = "150px";
     elem.style.borderRadius = "50%";
