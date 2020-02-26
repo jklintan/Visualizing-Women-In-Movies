@@ -129,7 +129,7 @@ function sunburst(theData) {
        .style("font-size", "14px")
        .style("width", "50px")
        .style("height", "10px")
-       .attr("dy", function (d) { return "13" }) //Move the text down
+       .attr("dy", function (d) { return "-3" }) //Move the text down
        .append("textPath")
        .attr("xlink:href", function (d, i) { return "#" + d.name; })
        .attr("startOffset", function (d) {
@@ -144,8 +144,9 @@ function sunburst(theData) {
            name = "";
          }
          return name.toUpperCase();
-       })
-       ;
+       }).on("mouseover", mouseoverGenre)
+       .on("mouseleave", mouseleaveGenre);
+  
  
        var movieCircle = vis.selectAll("movieCircle")
        .data(genres)
@@ -210,6 +211,70 @@ function sunburst(theData) {
    };
  
    var x = document.getElementById("centerImage");
+
+   function mouseoverGenre(genreText){
+
+      var genreTexts = document.getElementsByTagName("textPath")
+      for(var i = 0; i < genreTexts.length; i++){
+        if(genreTexts[i].href.baseVal == "#" + genreText.name){
+          var chosenText = genreTexts[i];
+          break;
+        }
+      }
+
+      chosenText.style.fill = "#4687AB"
+
+      var elementsCircle = document.getElementsByTagName("circle");
+
+      for(var j = 0; j < chartData.children.length; j++){
+        if(chartData.children[j] == genreText)
+          var currentGenreData = chartData.children[j];
+      }
+
+      currentGenreData = currentGenreData.children;
+
+      for(var i = 0; i < elementsCircle.length; i++){
+        var movietitle = elementsCircle[i].id.substr(11);
+        for(var j = 0; j < currentGenreData.length; j++){
+          if(currentGenreData[j].Title == movietitle){
+            elementsCircle[i].style.fill = "#4687AB";
+          }
+        }
+      }
+
+   };
+
+   function mouseleaveGenre(genreText){
+
+    var genreTexts = document.getElementsByTagName("textPath")
+    for(var i = 0; i < genreTexts.length; i++){
+      if(genreTexts[i].href.baseVal == "#" + genreText.name){
+        var chosenText = genreTexts[i];
+        break;
+      }
+    }
+
+    chosenText.style.fill = "#fff"
+
+    var elementsCircle = document.getElementsByTagName("circle");
+
+    for(var j = 0; j < chartData.children.length; j++){
+      if(chartData.children[j] == genreText)
+        var currentGenreData = chartData.children[j];
+    }
+
+    currentGenreData = currentGenreData.children;
+
+    for(var i = 0; i < elementsCircle.length; i++){
+      var movietitle = elementsCircle[i].id.substr(11);
+      for(var j = 0; j < currentGenreData.length; j++){
+        if(currentGenreData[j].Title == movietitle){
+          elementsCircle[i].style.fill = "#fff";
+        }
+      }
+    }
+
+   };
  
    //Fix mouseover effect (details on demand)
    function mouseover(d) {
