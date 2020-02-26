@@ -1,7 +1,6 @@
 
 
 d3.json('./data/processedData.json', function(data){
-  console.log(data)
 
   var sunburstGraph;
 
