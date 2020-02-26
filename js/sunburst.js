@@ -1,298 +1,373 @@
-// Dimensions of sunburst.
-var width = 750;
-var height = 600;
-var radius = Math.min(width, height) / 2;
 
-// Breadcrumb dimensions: width, height, spacing, width of tip/tail.
-var b = {
-  w: 75, h: 30, s: 3, t: 10
-};
-
-// Mapping of step names to colors.
-var colors = {
-  "home": "#5687d1",
-  "product": "#7b615c",
-  "search": "#de783b",
-  "account": "#6ab975",
-  "other": "#a173d1",
-  "end": "#bbbbbb"
-};
-
-// Total size of all segments; we set this later, after loading the data.
-var totalSize = 0; 
-
-var vis = d3.select("#chart").append("svg:svg")
-    .attr("width", width)
-    .attr("height", height)
-    .append("svg:g")
-    .attr("id", "container")
-    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-
-var partition = d3.partition()
-    .size([2 * Math.PI, radius * radius]);
-
-var arc = d3.arc()
-    .startAngle(function(d) { return d.x0; })
-    .endAngle(function(d) { return d.x1; })
-    .innerRadius(function(d) { return Math.sqrt(d.y0); })
-    .outerRadius(function(d) { return Math.sqrt(d.y1); });
-
-// Use d3.text and d3.csvParseRows so that we do not need to have a header
-// row, and can receive the csv as an array of arrays.
-d3.text("visit-sequences.csv", function(text) {
-  var csv = d3.csvParseRows(text);
-  var json = buildHierarchy(csv);
-  createVisualization(json);
-});
-
-// Main function to draw and set up the visualization, once we have the data.
-function createVisualization(json) {
-
-  // Basic setup of page elements.
-  initializeBreadcrumbTrail();
-  drawLegend();
-  d3.select("#togglelegend").on("click", toggleLegend);
-
-  // Bounding circle underneath the sunburst, to make it easier to detect
-  // when the mouse leaves the parent g.
-  vis.append("svg:circle")
-      .attr("r", radius)
-      .style("opacity", 0);
-
-  // Turn the data into a d3 hierarchy and calculate the sums.
-  var root = d3.hierarchy(json)
-      .sum(function(d) { return d.size; })
-      .sort(function(a, b) { return b.value - a.value; });
+function sunburst(theData) {
   
-  // For efficiency, filter nodes to keep only those large enough to see.
-  var nodes = partition(root).descendants()
-      .filter(function(d) {
-          return (d.x1 - d.x0 > 0.005); // 0.005 radians = 0.29 degrees
-      });
-
-  var path = vis.data([json]).selectAll("path")
-      .data(nodes)
-      .enter().append("svg:path")
-      .attr("display", function(d) { return d.depth ? null : "none"; })
-      .attr("d", arc)
-      .attr("fill-rule", "evenodd")
-      .style("fill", function(d) { return colors[d.data.name]; })
-      .style("opacity", 1)
-      .on("mouseover", mouseover);
-
-  // Add the mouseleave handler to the bounding circle.
-  d3.select("#container").on("mouseleave", mouseleave);
-
-  // Get total size of the tree = value of root node from partition.
-  totalSize = path.datum().value;
- };
-
-// Fade all but the current sequence, and show it in the breadcrumb trail.
-function mouseover(d) {
-
-  var percentage = (100 * d.value / totalSize).toPrecision(3);
-  var percentageString = percentage + "%";
-  if (percentage < 0.1) {
-    percentageString = "< 0.1%";
-  }
-
-  d3.select("#percentage")
-      .text(percentageString);
-
-  d3.select("#explanation")
-      .style("visibility", "");
-
-  var sequenceArray = d.ancestors().reverse();
-  sequenceArray.shift(); // remove root node from the array
-  updateBreadcrumbs(sequenceArray, percentageString);
-
-  // Fade all the segments.
-  d3.selectAll("path")
-      .style("opacity", 0.3);
-
-  // Then highlight only those that are an ancestor of the current segment.
-  vis.selectAll("path")
-      .filter(function(node) {
-                return (sequenceArray.indexOf(node) >= 0);
-              })
-      .style("opacity", 1);
-}
-
-// Restore everything to full opacity when moving off the visualization.
-function mouseleave(d) {
-
-  // Hide the breadcrumb trail
-  d3.select("#trail")
-      .style("visibility", "hidden");
-
-  // Deactivate all segments during transition.
-  d3.selectAll("path").on("mouseover", null);
-
-  // Transition each segment to full opacity and then reactivate it.
-  d3.selectAll("path")
-      .transition()
-      .duration(1000)
-      .style("opacity", 1)
-      .on("end", function() {
-              d3.select(this).on("mouseover", mouseover);
-            });
-
-  d3.select("#explanation")
-      .style("visibility", "hidden");
-}
-
-function initializeBreadcrumbTrail() {
-  // Add the svg area.
-  var trail = d3.select("#sequence").append("svg:svg")
-      .attr("width", width)
-      .attr("height", 50)
-      .attr("id", "trail");
-  // Add the label at the end, for the percentage.
-  trail.append("svg:text")
-    .attr("id", "endlabel")
-    .style("fill", "#000");
-}
-
-// Generate a string that describes the points of a breadcrumb polygon.
-function breadcrumbPoints(d, i) {
-  var points = [];
-  points.push("0,0");
-  points.push(b.w + ",0");
-  points.push(b.w + b.t + "," + (b.h / 2));
-  points.push(b.w + "," + b.h);
-  points.push("0," + b.h);
-  if (i > 0) { // Leftmost breadcrumb; don't include 6th vertex.
-    points.push(b.t + "," + (b.h / 2));
-  }
-  return points.join(" ");
-}
-
-// Update the breadcrumb trail to show the current sequence and percentage.
-function updateBreadcrumbs(nodeArray, percentageString) {
-
-  // Data join; key function combines name and depth (= position in sequence).
-  var trail = d3.select("#trail")
-      .selectAll("g")
-      .data(nodeArray, function(d) { return d.data.name + d.depth; });
-
-  // Remove exiting nodes.
-  trail.exit().remove();
-
-  // Add breadcrumb and label for entering nodes.
-  var entering = trail.enter().append("svg:g");
-
-  entering.append("svg:polygon")
-      .attr("points", breadcrumbPoints)
-      .style("fill", function(d) { return colors[d.data.name]; });
-
-  entering.append("svg:text")
-      .attr("x", (b.w + b.t) / 2)
-      .attr("y", b.h / 2)
-      .attr("dy", "0.35em")
-      .attr("text-anchor", "middle")
-      .text(function(d) { return d.data.name; });
-
-  // Merge enter and update selections; set position for all nodes.
-  entering.merge(trail).attr("transform", function(d, i) {
-    return "translate(" + i * (b.w + b.s) + ", 0)";
-  });
-
-  // Now move and update the percentage at the end.
-  d3.select("#trail").select("#endlabel")
-      .attr("x", (nodeArray.length + 0.5) * (b.w + b.s))
-      .attr("y", b.h / 2)
-      .attr("dy", "0.35em")
-      .attr("text-anchor", "middle")
-      .text(percentageString);
-
-  // Make the breadcrumb trail visible, if it's hidden.
-  d3.select("#trail")
-      .style("visibility", "");
-
-}
-
-function drawLegend() {
-
-  // Dimensions of legend item: width, height, spacing, radius of rounded rect.
-  var li = {
-    w: 75, h: 30, s: 3, r: 3
-  };
-
-  var legend = d3.select("#legend").append("svg:svg")
-      .attr("width", li.w)
-      .attr("height", d3.keys(colors).length * (li.h + li.s));
-
-  var g = legend.selectAll("g")
-      .data(d3.entries(colors))
-      .enter().append("svg:g")
-      .attr("transform", function(d, i) {
-              return "translate(0," + i * (li.h + li.s) + ")";
-           });
-
-  g.append("svg:rect")
-      .attr("rx", li.r)
-      .attr("ry", li.r)
-      .attr("width", li.w)
-      .attr("height", li.h)
-      .style("fill", function(d) { return d.value; });
-
-  g.append("svg:text")
-      .attr("x", li.w / 2)
-      .attr("y", li.h / 2)
-      .attr("dy", "0.35em")
-      .attr("text-anchor", "middle")
-      .text(function(d) { return d.key; });
-}
-
-function toggleLegend() {
-  var legend = d3.select("#legend");
-  if (legend.style("visibility") == "hidden") {
-    legend.style("visibility", "");
-  } else {
-    legend.style("visibility", "hidden");
-  }
-}
-
-// Take a 2-column CSV and transform it into a hierarchical structure suitable
-// for a partition layout. The first column is a sequence of step names, from
-// root to leaf, separated by hyphens. The second column is a count of how 
-// often that sequence occurred.
-function buildHierarchy(csv) {
-  var root = {"name": "root", "children": []};
-  for (var i = 0; i < csv.length; i++) {
-    var sequence = csv[i][0];
-    var size = +csv[i][1];
-    if (isNaN(size)) { // e.g. if this is a header row
-      continue;
-    }
-    var parts = sequence.split("-");
-    var currentNode = root;
-    for (var j = 0; j < parts.length; j++) {
-      var children = currentNode["children"];
-      var nodeName = parts[j];
-      var childNode;
-      if (j + 1 < parts.length) {
-   // Not yet at the end of the sequence; move down the tree.
- 	var foundChild = false;
- 	for (var k = 0; k < children.length; k++) {
- 	  if (children[k]["name"] == nodeName) {
- 	    childNode = children[k];
- 	    foundChild = true;
- 	    break;
- 	  }
- 	}
-  // If we don't already have a child node for this branch, create it.
- 	if (!foundChild) {
- 	  childNode = {"name": nodeName, "children": []};
- 	  children.push(childNode);
- 	}
- 	currentNode = childNode;
-      } else {
- 	// Reached the end of the sequence; create a leaf node.
- 	childNode = {"name": nodeName, "size": size};
- 	children.push(childNode);
+  var chartData = theData;
+ 
+  var elem = document.getElementById('centerImage');
+     elem.style.backgroundImage = "url(./centerIm3.png)";
+ 
+   var colors = {
+     "Comedy": "#c56290",
+     "Romance": "#c56290",
+     "Horror": "#c56290",
+     "Action": "#c56290",
+     "Adventure": "#c56290",
+     "Sci-fi": "#c56290",
+     "Drama": "#c56290",
+     "Thriller": "#c56290",
+     "Fantasy": "#c56290",
+     "Animation": "#c56290",
+     "Documentary": "#c56290",
+     "Mystery": "#c56290",
+     "Biography": "#c56290",
+     "Crime": "#c56290",
+   };
+ 
+   // Dimensions of starburst.
+   var width =  1200;
+   var height = 800;
+   var radius = Math.min(width, height) / 2.67;
+   var startYear = 1960;
+   var endYear = 2030;
+   var baseYear = startYear - 1;
+   var yearRing = [{ x: 298, y: 298 }, { x: 264, y: 264 }, { x: 230, y: 230 }, { x: 196, y: 196 }, { x: 162, y: 162 }, { x: 128, y: 128 }, { x: 94, y: 94 }, { x: 60, y: 60 }];
+   var maturationYearTextData = [{ dx: -14, dy: -94, label: "1970" }, { dx: -14, dy: -128, label: "1980" }, { dx: -14, dy: -162, label: "1990" }, { dx: -14, dy: -196, label: "2000" }, { dx: -14, dy: -230, label: "2010" }, { dx: -14, dy: -264, label: "2020" }];
+   var legend = document.getElementById("legend");
+ 
+   var vis = d3.select("#vis").append("svg:svg")
+     .attr("width", width)
+     .attr("height", height)
+     .append("svg:g")
+     .attr("id", "container")
+     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+ 
+   var partition = d3.layout.partition()
+     .size([2 * Math.PI, radius * radius])
+     .value(function (d) { return 1; });
+ 
+   var arc = d3.svg.arc()
+     .startAngle(function (d) { return d.x; })
+     .endAngle(function (d) { return d.x; })
+     .innerRadius(function (d) {
+       if (d.depth == 1) {
+         return 60;
+       } else {
+         return Math.sqrt(d.y) + 140;
+       }
+     })
+     .outerRadius(function (d) {
+       if (d.depth == 2) {
+         return Math.sqrt(d.y + d.dy);
+       } else {
+         return Math.sqrt(d.y + d.dy) + 140;
+       }
+     });
+ 
+   //start rendering   
+   generateStarBurst(chartData);
+ 
+   // Main function to draw graph and set up the visualization, once we have the data.
+   function generateStarBurst(json) {
+ 
+     // Bounding circle underneath the starburst, to make it easier to detect
+     // when the mouse leaves the parent g.
+ 
+     // For efficiency, filter nodes to keep only those large enough to see.
+     var nodes = partition.nodes(json)
+       .filter(function (d) {
+         return (d.dx > 0.005); // 0.005 radians = 0.29 degrees
+       });
+ 
+     var technologies = (function (a) {
+       var output = [];
+       a.forEach(function (d) {
+         if (output.indexOf(d.name) === -1) {
+           if (d.depth == 2) {
+             output.push(d);
+           }
+         }
+       });
+       return output;
+     })(nodes);
+ 
+     var circle = vis.selectAll("circle")
+       .data(yearRing)
+       .enter().append("svg:circle")
+       .attr("r", function (d) {
+         return d.x; })
+       .style("fill", function (d, i) { return (i == yearRing.length - 1) ? "#000" : "#000"; })
+       .style('stroke', '#c0c0c0') //Colors of round borders
+       .style("stroke-width", 1);
+ 
+     var path = vis.selectAll("path")
+       .data(nodes)
+       .enter().append("svg:path")
+       .attr("display", function (d) { return d.depth ? null : "none"; })
+       .attr("d", arc)
+       .attr("fill-rule", "evenodd")
+       .attr("id", function (d) { return d.name })
+       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : "transparent"; })
+       .style("opacity", 0.4)
+       .style('stroke', function (d) { return (d.depth == 2) ? "#826b57" : "#fff"; }) //colors[d.parent.name] : "#fff"; }) //color on the peaks
+       .style("stroke-width", 1.2);
+ 
+     var maturationYear = vis.selectAll("ellipse")
+       .data([{ cx: 0, cy: -94 }, { cx: 0, cy: -128 }, { cx: 0, cy: -162 }, { cx: 0, cy: -196 }, { cx: 0, cy: -230 }, { cx: 0, cy: -264 }])
+       .enter().append("svg:ellipse")
+       .attr("cx", function (d) { return d.cx; })
+       .attr("cy", function (d) { return d.cy; })
+       .attr("rx", 20)
+       .attr("ry", 12)
+       .style("opacity", 0.7)
+       .style("fill", "#fff");
+ 
+ 
+     var technologyText = vis.selectAll("technologyText")
+       .data(nodes)
+       .enter().append("text")
+       .attr("id", function (d) { return "technologyText" + d.Genre; })
+       .attr("transform", function (d) { return "rotate(" + computeTextRotation(d) + ")"; })
+       .attr("x", "6")
+       .style("font-size", function (d) { return (d.depth == 2) ? "9px" : "10px"; })
+       .style("font-weight", "bold")
+       .style("fill", function (d) { return (d.depth == 2) ? colors[d.parent.name] : ""; })
+       .attr("dx", function (d) { return (d.depth == 1) ? 75 : 300; }) // margin
+       .attr("dy", ".35em") // vertical-align
+       .text(function (d) { return d.depth == 2 ? "" : "";}) // + d.Title.toUpperCase() : ""; })
+       // .on("mouseover", mouseover)
+       // .on("mouseleave", mouseleave);
+ 
+     var romanceText = vis.selectAll("path")
+     romanceText = romanceText[0];
+ 
+     for(var i = 0; i < romanceText.length; i++){
+       if(romanceText[i].id == "Romance"){
+         var pathRomance = romanceText[i];
+       }
+     }
+ 
+ 
+ 
+     var categoryText = vis.selectAll("categoryText")
+       .data(nodes)
+       .enter().append("text")
+       .style("fill", "red")
+       .style("font-size", "15px")
+       .style("width", "50px")
+       .style("height", "10px")
+       .attr("dy", function (d) { return "15" }) //Move the text down
+       .append("textPath")
+       .attr("xlink:href", function (d, i) { return "#" + d.name; })
+       .attr("startOffset", function (d) {
+         return "0%";
+       })
+       .text(function (d) {
+         var name;
+         if (d.depth == 1) {
+           name = d.name;
+         } else {
+           name = "";
+         }
+         return name.toUpperCase();
+       })
+       ;
+ 
+       var techCircle = vis.selectAll("techCircle")
+       .data(technologies)
+       .enter().append("svg:circle")
+       .attr("opacity", 0.5)
+ 
+       .attr("id", function (d) {
+         return "techcircle" + d.Title; })
+       .attr("class", function (d) { 
+           return d.Title; })
+       .attr("class", function (d) { 
+           return toString(d.Genre); })
+       .attr("class", function (d) { 
+           return d.bechdel; })
+       .attr("cx", function (d) { return getTechCircleData(d, 0); })
+       .attr("cy", function (d) { return getTechCircleData(d, 1); })
+       .attr("r", function(d){ //Radius of circles
+          if(d.income > 200918508){
+            return 10;
+          }else if(d.income == "-1"){
+            return 3;
+          }
+          return 6;
+       })
+       //3.5)
+       .style("fill", function (d) {
+         var thecolor = "#fff";
+         if(d.bechdel == 1){
+           // thecolor = "#0f0";
+           theColor = "#fff"
+         }
+         if(d.bechdel == 0){
+           // thecolor = "red"
+           theColor = "#fff"
+         }
+         return d.depth < 1 ? "#fff" : thecolor; //colors[d.parent.name];
+       });
+ 
+     var techCircleText = vis.selectAll("techCircleText")
+       .data(technologies)
+       .enter().append("svg:text")
+       .attr("id", function (d) { return "techCircleText" + d.name; })
+       .style("font-size", "6px")
+       .attr("y", "2")
+       .style("fill", "#fff")
+       .attr("text-anchor", "middle")
+       .attr("dx", function (d) { return getTechCircleData(d, 0); })
+       .attr("dy", function (d) { return getTechCircleData(d, 1); })
+ 
+     var techInvisiblecircle = vis.selectAll("techInvisibleCircle")
+       .data(technologies)
+       .enter().append("svg:circle")
+       .attr("opacity", 0.5)
+       .attr("border", "none")
+       .attr("class", function (d) { 
+         return d.Genre; })
+       .attr("class", function (d) { 
+         return d.bechdel; })
+       .attr("id", function (d) { return "techInvisibleCircle" + d.name; })
+       .attr("cx", function (d) { return getTechCircleData(d, 0); })
+       .attr("cy", function (d) { return getTechCircleData(d, 1); })
+       .attr("r", function(d){ //Radius of circles
+         if(d.income > 200918508){
+           return 10;
+         }else if(d.income == "-1"){
+           return 3;
+         }
+         return 6;
+      })
+       .style("fill", "transparent")
+       .style("stroke", "#fff")
+       .on("mouseover", mouseover)
+       .on("mouseleave", mouseleave);
+ 
+ 
+     var maturationYearText = vis.selectAll("maturationYearText")
+       .data(maturationYearTextData)
+       .enter().append("text")
+       .text(function (d) { return d.label; })
+       .style("font-size", "12px")
+       .style("font-weight", "bold")
+       .attr("x", "1")
+       .attr("y", "3")
+       .attr("dx", function (d) { return d.dx; })
+       .attr("dy", function (d) { return d.dy; });
+   };
+ 
+   var x = document.getElementById("centerImage");
+ 
+   function mouseover(d) {
+     d3.select(this).style("cursor", "pointer");
+ 
+   
+     //Change hover over current circle
+    var currentCircle = document.getElementsByTagName("circle");
+    for(var i = 0; i < currentCircle.length; i++){
+      if(currentCircle[i].id == "techcircle" + d.Title){
+        var saveIt = currentCircle[i];
+        break;
       }
     }
-  }
-  return root;
-};
+    saveIt.style.opacity = "1.0"
+ 
+ 
+     var elem = document.getElementById('centerImage')
+     elem.style.backgroundImage = "url(/data/images/" + d.PosterImage + ")"; //If local version
+     //elem.style.backgroundImage = "url(https://github.com/jklintan/Visualizing-Women-In-Movies/blob/master/data/images/" + d.PosterImage + ")"; //If online version
+     elem.style.width = "150px";
+     elem.style.height = "150px";
+     elem.style.borderRadius = "50%";
+     elem.style.color = "black";
+ 
+     legend.style.visibility = "visible";
+     var textTitle = d.Title.toUpperCase();
+     var titlen = document.getElementsByTagName("h1");
+     var legendTitle = document.getElementById("legendHead");
+ 
+     if(titlen.length == 0){
+       var titlen = document.createElement("h1");
+       titlen.append(textTitle);
+       legendTitle.append(titlen);     
+     }else{
+       titlen[0].append(textTitle);
+     }
+ 
+     var bechdelInfo = document.getElementsByClassName("bechdelInfo")
+     if(d.bechdel == "1"){
+       bechdelInfo[0].append("Passes bechdel test");
+       legend.style.backgroundColor = "green";    
+     }else if(d.bechdel == "0"){
+       bechdelInfo[0].append("Do not pass the bechdel test");   
+       legend.style.backgroundColor = "red"; 
+     }else{
+       bechdelInfo[0].append("Bechdel data do not exist");   
+       legend.style.backgroundColor = "white"; 
+     }
+ 
+ 
+ 
+     var coordinates= d3.mouse(this);
+     var posMargin = (width/2 + Math.floor(coordinates[0])) + 10;
+     var posMargin2 = (height/2 + Math.floor(coordinates[1])) + 10;
+     //legend.style.margin =  posMargin2 + "px " + posMargin + "px " ;
+     // legend.translate.x = posMargin;
+     legend.style.marginTop = posMargin2 + "px";
+     legend.style.marginLeft = posMargin + "px";
+     //legend.style.margin = posMargin + "px";
+   }
+ 
+ 
+ 
+ 
+   // Restore everything to full opacity when moving off the visualization.
+   function mouseleave(d) {
+     d3.select(this).style("cursor", "default");
+     var legenden = document.getElementById("legend");
+     legenden.getElementsByTagName('h1')[0].innerHTML = "";
+     legenden.style.marginTop =  "0";
+     legenden.style.marginLeft = "0";
+     legenden.style.visibility = "hidden";
+ 
+     var bechdelInfo = document.getElementsByClassName("bechdelInfo")
+     bechdelInfo[0].innerHTML = "";    
+ 
+ 
+     var elem = document.getElementById('centerImage');
+     elem.style.backgroundImage = "url(./centerIm3.png)";
+ 
+ 
+     var currentCircle = document.getElementsByTagName("circle");
+     for(var i = 0; i < currentCircle.length; i++){
+       if(currentCircle[i].id == "techcircle" + d.Title){
+         var saveIt = currentCircle[i];
+         break;
+       }
+     }
+  
+     saveIt.style.opacity = "0.5";
+     
+   }
+   //calculate rotation angle of text
+   function computeTextRotation(d) {
+     return (d.x + (d.dx) / 2) * 180 / Math.PI - 90;
+   }
+ 
+   //calculate the position of bubble
+   function getTechCircleData(d, i) {
+     if (d.Year <= startYear) {
+       return arc.centroid(d)[i] * 1.0;
+     }
+     else if (d.Year > endYear) {
+       return arc.centroid(d)[i] * 1.080;
+     }
+     else {
+       return arc.centroid(d)[i] * (0.138 + 0.0118 * (d.Year - baseYear + 1)); //Year
+     }
+   }
+ 
+ }
+ 
