@@ -16,11 +16,12 @@ function changeColor(c, button){
 
   if(button.className == "btn"){   
 
-    if(c == "1")
+    if(c == "1"){
       button.className = "btn pass"
       for (i = 0; i < pass.length; i++) {
           pass[i].style.fill = "#fff";
       }
+    }
       if(c == "0"){
         button.className = "btn fail"
         for (i = 0; i < fails.length; i++) {
