@@ -146,11 +146,13 @@ function sunburst(theData) {
          return name.toUpperCase();
        }).on("mouseover", mouseoverGenre)
        .on("mouseleave", mouseleaveGenre);
+  
  
        var movieCircle = vis.selectAll("movieCircle")
        .data(genres)
        .enter().append("svg:circle")
        .attr("opacity", 0.7)
+ 
        .attr("id", function (d) {
          return "moviecircle" + d.Title; })
        .attr("class", function (d) { 
@@ -165,7 +167,7 @@ function sunburst(theData) {
           if(d.income > 200918508){
             return 10;
           }else if(d.income == "-1"){
-            return 3;
+            return 4;
           }
           return 6;
        })
@@ -184,7 +186,7 @@ function sunburst(theData) {
        }).on("mouseover", mouseover)
        .on("mouseleave", mouseleave);
 
-       var producedYear = vis.selectAll("ellipse")
+    var producedYear = vis.selectAll("ellipse")
        .data([{ cx: 0, cy: -94 }, { cx: 0, cy: -128 }, { cx: 0, cy: -162 }, { cx: 0, cy: -196 }, { cx: 0, cy: -230 }, { cx: 0, cy: -264 }])
        .enter().append("svg:ellipse")
        .attr("cx", function (d) { return d.cx; })
@@ -202,6 +204,9 @@ function sunburst(theData) {
        .style("font-weight", "bold")
        .style("fill", "#fff !important")
        .style("transform", "rotate(43deg)")
+       .attr("class", function(d){
+         return "years " + d.label;
+       })
        .attr("x", "2")
        .attr("y", "10")
        .attr("dx", function (d) { return d.dx; })
@@ -209,8 +214,12 @@ function sunburst(theData) {
    };
  
    var x = document.getElementById("centerImage");
+   var oldstyle = [];
 
+   //Hover function for hovering over genres
    function mouseoverGenre(genreText){
+    d3.select(this).style("cursor", "pointer");
+    oldstyle = [];
 
       var genreTexts = document.getElementsByTagName("textPath")
       for(var i = 0; i < genreTexts.length; i++){
@@ -235,8 +244,10 @@ function sunburst(theData) {
         var movietitle = elementsCircle[i].id.substr(11);
         for(var j = 0; j < currentGenreData.length; j++){
           if(currentGenreData[j].Title == movietitle){
+            oldstyle[j] = elementsCircle[i].style.fill;
             elementsCircle[i].style.fill = "#4687AB";
           }
+        
         }
       }
 
@@ -262,12 +273,13 @@ function sunburst(theData) {
     }
 
     currentGenreData = currentGenreData.children;
-
+    var k = 0;
     for(var i = 0; i < elementsCircle.length; i++){
       var movietitle = elementsCircle[i].id.substr(11);
       for(var j = 0; j < currentGenreData.length; j++){
         if(currentGenreData[j].Title == movietitle){
-          elementsCircle[i].style.fill = "#fff";
+          elementsCircle[i].style.fill = oldstyle[k];
+          k = k + 1;
         }
       }
     }
@@ -327,21 +339,34 @@ function sunburst(theData) {
        colorExtra.style.backgroundColor  = "red"; 
      }else{
        bechdelInfo[0].append("Bechdel data do not exist");   
+       colorExtra.style.backgroundColor = "grey"
      }
  
  
-
+ 
      var coordinates= d3.mouse(this);
      var posMargin = (width/2 + Math.floor(coordinates[0])) + 10;
      var posMargin2 = (height/2 + Math.floor(coordinates[1])) + 10;
      //legend.style.margin =  posMargin2 + "px " + posMargin + "px " ;
      // legend.translate.x = posMargin;
-     legend.style.marginTop = posMargin2 + "px";
-     legend.style.marginLeft = posMargin + "px";
-     //legend.style.margin = posMargin + "px";
+     console.log(coordinates[0])
+     if(coordinates[1] < 0){
+        legend.style.marginTop = posMargin2 - 200 + "px";
+     }else{
+      legend.style.marginTop = posMargin2 + 10 + "px";
+     }
+
+     if(coordinates[0] < 0){
+      legend.style.marginLeft = posMargin - 20 + "px";
+     }else{
+      legend.style.marginLeft = posMargin + 150 +  "px";
+     }
+
+
    }
  
- 
+   
+
  
  
    // Restore everything to full opacity when moving off the visualization.
@@ -376,6 +401,8 @@ function sunburst(theData) {
   
      saveIt.style.opacity = "0.7";
    }
+
+
    //calculate rotation angle of text
    function computeTextRotation(d) {
      return (d.x + (d.dx) / 2) * 180 / Math.PI - 90;
@@ -390,11 +417,12 @@ function sunburst(theData) {
        return arc.centroid(d)[i] * 1.080;
      }
      else {
-       return arc.centroid(d)[i] * (0.138 + 0.0118 * (d.Year - baseYear + 1)); //Year
+       return arc.centroid(d)[i] * (0.138 + 0.0123 * (d.Year - baseYear + 1)); //Year
      }
    }
  }
- 
+
+
  function showBechdelInfo(mouse){
   var bechdelLegend = document.getElementById("bechdelInfoLegend");
   bechdelLegend.style.visibility = "visible";
@@ -407,4 +435,3 @@ function hideBechdelInfo(){
   var bechdelLegend = document.getElementById("bechdelInfoLegend");
   bechdelLegend.style.visibility = "hidden";
 }
- 
