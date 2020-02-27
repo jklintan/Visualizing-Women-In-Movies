@@ -246,26 +246,36 @@ svg{
 .bechdelInfo{
     font-size: 12px;
 }
+
+#circles{
+    font-size: 10px;
+}
 .circle1 {
-    height: 3px;
-    width: 3px;
-    background-color: #bbb;
+    height: 7px;
+    width: 7px;
+    background-color: #4687AB;
     border-radius: 50%;
     display: inline-block;
+    margin-left: 2vw;
+    margin-right: 2vw;
 }
 .circle2 {
-    height: 6px;
-    width: 6px;
-    background-color: #bbb;
+    height: 13px;
+    width: 13px;
+    background-color:#4687AB;
     border-radius: 50%;
     display: inline-block;
+    margin-left: 2.5vw;
+    margin-right: 2vw;
 
 }
 .circle3 {
-    height: 10px;
-    width: 10px;
-    background-color: #bbb;
+    height: 20px;
+    width: 20px;
+    background-color:#4687AB;
     border-radius: 50%;
     display: inline-block;
+    margin-left: 2.5vw;
+    margin-right: 2vw;
     
 }
