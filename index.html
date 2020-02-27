@@ -22,10 +22,9 @@
                     
                     <!-- Filtering -->
                     <div id="buttons">
-                        <button class="btn active" onclick="filterSelection('all')"> Show all</button>
-                        <button class="btn" onclick="filterSelection('1')"> Bechdel pass</button>
-                        <button class="btn" onclick="filterSelection('0')"> Bechdel fail</button>
-                        <button class="btn" onclick="filterSelection('N/A')"> Bechdel data unknown</button>
+                        <button class="btn pass" onclick="changeColor('1',this)"></button><p>Bechdel pass</p></br>
+                        <button class="btn fail" onclick="changeColor('0', this)"></button><p>Bechdel fail</p></br>
+                        <button class="btn unknown" onclick="changeColor('N/A',this)"></button><p>Bechdel data unknown</p></br>
                       </div>
                 
                 </div>

@@ -123,7 +123,7 @@ svg{
 #passInfo{
     width: 100%;
     height: 20px;
-    background-color: #f9d71c;
+    background-color: #ccc;
 }
 
 #legend{
@@ -145,12 +145,20 @@ svg{
 .show {
     display: block;
   }
+
+  button{
+      width: 20px !important;
+      height: 25px !important;
+      border: 2px solid #ccc !important;
+  }
+
+  .pass {
+      border: 2px solid green !important;
+  }
   
   .btn {
-    border: none;
     outline: none;
-    padding: 12px 16px;
-    background-color: #f1f1f1;
+    background-color: #ccc !important;
     cursor: pointer;
   }
   
@@ -158,7 +166,60 @@ svg{
     background-color: #ddd;
   }
   
-  .btn.active {
-    background-color: #666;
-    color: white;
-  }
+
+  #buttons p {
+    font-size: 14px;
+    padding-left: 10px;
+    display: inline-block;
+}
+
+.btn.pass{
+    background-color: #ccc !important;
+    width: 20px !important;
+    height: 25px !important;
+    border: 2px solid green;
+}   
+
+.btn .fail{
+    background-color: red !important;
+    width: 20px !important;
+    height: 25px !important;
+    border: 2px solid red;
+
+}
+
+.btn.pass.active{
+    background-color: green !important;
+    width: 20px !important;
+    height: 25px !important;
+    border: 2px solid green;
+}
+
+.btn.fail.active{
+    background-color: red !important;
+    width: 20px !important;
+    height: 25px !important;
+    border: 2px solid red;
+}
+
+.btn .unknown{
+    background-color: #000 !important;
+    width: 20px !important;
+    height: 25px !important;
+    border: 2px solid yellow;
+}
+
+.unknown{
+    border: 2px solid yellow !important;
+}
+
+.fail{
+    border: 2px solid red !important;
+}
+
+.btn.unknown.active{
+    background-color: yellow !important;
+    width: 20px !important;
+    height: 25px !important;
+    border: 2px solid yellow !important;
+}

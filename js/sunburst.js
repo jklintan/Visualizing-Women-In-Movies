@@ -167,7 +167,7 @@ function sunburst(theData) {
           if(d.income > 200918508){
             return 10;
           }else if(d.income == "-1"){
-            return 3;
+            return 4;
           }
           return 6;
        })
@@ -211,8 +211,12 @@ function sunburst(theData) {
    };
  
    var x = document.getElementById("centerImage");
+   var oldstyle = [];
 
+   //Hover function for hovering over genres
    function mouseoverGenre(genreText){
+
+    oldstyle = [];
 
       var genreTexts = document.getElementsByTagName("textPath")
       for(var i = 0; i < genreTexts.length; i++){
@@ -237,8 +241,10 @@ function sunburst(theData) {
         var movietitle = elementsCircle[i].id.substr(11);
         for(var j = 0; j < currentGenreData.length; j++){
           if(currentGenreData[j].Title == movietitle){
+            oldstyle[j] = elementsCircle[i].style.fill;
             elementsCircle[i].style.fill = "#4687AB";
           }
+        
         }
       }
 
@@ -264,12 +270,13 @@ function sunburst(theData) {
     }
 
     currentGenreData = currentGenreData.children;
-
+    var k = 0;
     for(var i = 0; i < elementsCircle.length; i++){
       var movietitle = elementsCircle[i].id.substr(11);
       for(var j = 0; j < currentGenreData.length; j++){
         if(currentGenreData[j].Title == movietitle){
-          elementsCircle[i].style.fill = "#fff";
+          elementsCircle[i].style.fill = oldstyle[k];
+          k = k + 1;
         }
       }
     }
@@ -329,6 +336,7 @@ function sunburst(theData) {
        colorExtra.style.backgroundColor  = "red"; 
      }else{
        bechdelInfo[0].append("Bechdel data do not exist");   
+       colorExtra.style.backgroundColor = "grey"
      }
  
  
