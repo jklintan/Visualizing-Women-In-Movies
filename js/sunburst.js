@@ -146,13 +146,11 @@ function sunburst(theData) {
          return name.toUpperCase();
        }).on("mouseover", mouseoverGenre)
        .on("mouseleave", mouseleaveGenre);
-  
  
        var movieCircle = vis.selectAll("movieCircle")
        .data(genres)
        .enter().append("svg:circle")
        .attr("opacity", 0.7)
- 
        .attr("id", function (d) {
          return "moviecircle" + d.Title; })
        .attr("class", function (d) { 
@@ -167,7 +165,7 @@ function sunburst(theData) {
           if(d.income > 200918508){
             return 10;
           }else if(d.income == "-1"){
-            return 4;
+            return 3;
           }
           return 6;
        })
@@ -211,12 +209,8 @@ function sunburst(theData) {
    };
  
    var x = document.getElementById("centerImage");
-   var oldstyle = [];
 
-   //Hover function for hovering over genres
    function mouseoverGenre(genreText){
-
-    oldstyle = [];
 
       var genreTexts = document.getElementsByTagName("textPath")
       for(var i = 0; i < genreTexts.length; i++){
@@ -241,10 +235,8 @@ function sunburst(theData) {
         var movietitle = elementsCircle[i].id.substr(11);
         for(var j = 0; j < currentGenreData.length; j++){
           if(currentGenreData[j].Title == movietitle){
-            oldstyle[j] = elementsCircle[i].style.fill;
             elementsCircle[i].style.fill = "#4687AB";
           }
-        
         }
       }
 
@@ -270,13 +262,12 @@ function sunburst(theData) {
     }
 
     currentGenreData = currentGenreData.children;
-    var k = 0;
+
     for(var i = 0; i < elementsCircle.length; i++){
       var movietitle = elementsCircle[i].id.substr(11);
       for(var j = 0; j < currentGenreData.length; j++){
         if(currentGenreData[j].Title == movietitle){
-          elementsCircle[i].style.fill = oldstyle[k];
-          k = k + 1;
+          elementsCircle[i].style.fill = "#fff";
         }
       }
     }
@@ -336,11 +327,10 @@ function sunburst(theData) {
        colorExtra.style.backgroundColor  = "red"; 
      }else{
        bechdelInfo[0].append("Bechdel data do not exist");   
-       colorExtra.style.backgroundColor = "grey"
      }
  
  
- 
+
      var coordinates= d3.mouse(this);
      var posMargin = (width/2 + Math.floor(coordinates[0])) + 10;
      var posMargin2 = (height/2 + Math.floor(coordinates[1])) + 10;
@@ -404,4 +394,17 @@ function sunburst(theData) {
      }
    }
  }
+ 
+ function showBechdelInfo(mouse){
+  var bechdelLegend = document.getElementById("bechdelInfoLegend");
+  bechdelLegend.style.visibility = "visible";
+  var bechdelTestPos = document.getElementById("aboutBechdel");
+  bechdelLegend.style.marginTop = bechdelTestPos.offsetTop + 30 + "px";
+  bechdelLegend.style.marginLeft = bechdelTestPos.offsetLeft + "px";
+}
+ 
+function hideBechdelInfo(){
+  var bechdelLegend = document.getElementById("bechdelInfoLegend");
+  bechdelLegend.style.visibility = "hidden";
+}
  

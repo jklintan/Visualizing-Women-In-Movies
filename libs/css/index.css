@@ -38,15 +38,16 @@ text{
 }
 
 
+
 .card-header{
     color: white !important; 
     text-align: left;
-    width: 20vw;
+    width: 22vw;
     height: 100vh;
     float: left;
     margin-left: 0 !important;
     position: absolute;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 svg{
@@ -63,6 +64,7 @@ svg{
 }
 
 h2{
+    width: 25vw;
     font-size: 26px !important;
     font-family: 'Montserrat Subrayada' !important;
 }
@@ -216,10 +218,33 @@ svg{
 .fail{
     border: 2px solid red !important;
 }
-
 .btn.unknown.active{
     background-color: yellow !important;
     width: 20px !important;
     height: 25px !important;
     border: 2px solid yellow !important;
+}
+#bechdelInfoLegend{
+    width: 400px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    opacity: 0.9;
+    z-index: 3 !important;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    text-align: left;
+}
+
+#aboutBechdel:hover{
+    cursor: pointer;
+}
+
+#bechdellegendHead{
+    font-size: 20px;
+}
+
+.bechdelInfo{
+    font-size: 12px;
 }
