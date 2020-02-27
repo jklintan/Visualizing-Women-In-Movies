@@ -186,7 +186,7 @@ function sunburst(theData) {
        }).on("mouseover", mouseover)
        .on("mouseleave", mouseleave);
 
-       var producedYear = vis.selectAll("ellipse")
+    var producedYear = vis.selectAll("ellipse")
        .data([{ cx: 0, cy: -94 }, { cx: 0, cy: -128 }, { cx: 0, cy: -162 }, { cx: 0, cy: -196 }, { cx: 0, cy: -230 }, { cx: 0, cy: -264 }])
        .enter().append("svg:ellipse")
        .attr("cx", function (d) { return d.cx; })
@@ -204,6 +204,9 @@ function sunburst(theData) {
        .style("font-weight", "bold")
        .style("fill", "#fff !important")
        .style("transform", "rotate(43deg)")
+       .attr("class", function(d){
+         return "years " + d.label;
+       })
        .attr("x", "2")
        .attr("y", "10")
        .attr("dx", function (d) { return d.dx; })
@@ -215,7 +218,7 @@ function sunburst(theData) {
 
    //Hover function for hovering over genres
    function mouseoverGenre(genreText){
-
+    d3.select(this).style("cursor", "pointer");
     oldstyle = [];
 
       var genreTexts = document.getElementsByTagName("textPath")
@@ -351,7 +354,8 @@ function sunburst(theData) {
      //legend.style.margin = posMargin + "px";
    }
  
- 
+   
+
  
  
    // Restore everything to full opacity when moving off the visualization.
@@ -386,6 +390,8 @@ function sunburst(theData) {
   
      saveIt.style.opacity = "0.7";
    }
+
+
    //calculate rotation angle of text
    function computeTextRotation(d) {
      return (d.x + (d.dx) / 2) * 180 / Math.PI - 90;
@@ -404,4 +410,17 @@ function sunburst(theData) {
      }
    }
  }
+
+
+ function showBechdelInfo(mouse){
+  var bechdelLegend = document.getElementById("bechdelInfoLegend");
+  bechdelLegend.style.visibility = "visible";
+  var bechdelTestPos = document.getElementById("aboutBechdel");
+  bechdelLegend.style.marginTop = bechdelTestPos.offsetTop + 30 + "px";
+  bechdelLegend.style.marginLeft = bechdelTestPos.offsetLeft + "px";
+}
  
+function hideBechdelInfo(){
+  var bechdelLegend = document.getElementById("bechdelInfoLegend");
+  bechdelLegend.style.visibility = "hidden";
+}
