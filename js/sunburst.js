@@ -349,9 +349,20 @@ function sunburst(theData) {
      var posMargin2 = (height/2 + Math.floor(coordinates[1])) + 10;
      //legend.style.margin =  posMargin2 + "px " + posMargin + "px " ;
      // legend.translate.x = posMargin;
-     legend.style.marginTop = posMargin2 + "px";
-     legend.style.marginLeft = posMargin + "px";
-     //legend.style.margin = posMargin + "px";
+     console.log(coordinates[0])
+     if(coordinates[1] < 0){
+        legend.style.marginTop = posMargin2 - 200 + "px";
+     }else{
+      legend.style.marginTop = posMargin2 + 10 + "px";
+     }
+
+     if(coordinates[0] < 0){
+      legend.style.marginLeft = posMargin - 30 + "px";
+     }else{
+      legend.style.marginLeft = posMargin + 150 +  "px";
+     }
+
+
    }
  
    
