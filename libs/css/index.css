@@ -114,7 +114,7 @@ svg{
 }
 
 #legend h1{
-    font-size: 20px;
+    font-size: 14px;
     font-family: 'Montserrat Subrayada';
     margin: auto;
     margin-top: 10px;
@@ -129,7 +129,7 @@ svg{
 }
 
 #legend{
-    width: 200px;
+    width: 150px;
     padding: 20px;
     border: 1px solid black;
     border-radius: 10px;
@@ -137,6 +137,27 @@ svg{
     z-index: 3 !important;
     position: absolute;
     visibility: hidden;
+}
+
+#bechdelInfoLegend{
+    width: 400px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    opacity: 0.9;
+    z-index: 3 !important;
+    position: absolute;
+    visibility: hidden;
+    background-color: white;
+    text-align: left;
+}
+
+#aboutBechdel:hover{
+    cursor: pointer;
+}
+
+#bechdellegendHead{
+    font-size: 20px;
 }
 
 .bechdelInfo{
