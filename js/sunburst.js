@@ -357,7 +357,7 @@ function sunburst(theData) {
      }
 
      if(coordinates[0] < 0){
-      legend.style.marginLeft = posMargin - 30 + "px";
+      legend.style.marginLeft = posMargin - 20 + "px";
      }else{
       legend.style.marginLeft = posMargin + 150 +  "px";
      }
