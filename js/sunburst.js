@@ -417,7 +417,7 @@ function sunburst(theData) {
        return arc.centroid(d)[i] * 1.080;
      }
      else {
-       return arc.centroid(d)[i] * (0.138 + 0.0118 * (d.Year - baseYear + 1)); //Year
+       return arc.centroid(d)[i] * (0.138 + 0.0123 * (d.Year - baseYear + 1)); //Year
      }
    }
  }
