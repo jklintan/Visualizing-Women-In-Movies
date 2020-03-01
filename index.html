@@ -16,15 +16,17 @@
 
             <div class="card-body">
                 <div class="card-header">
-                    <h2>Bechdel Impact in the Movie universe</h2>
-                    <p>This visualization display <span id="aboutBechdel" onmouseover="showBechdelInfo()" onmouseout="hideBechdelInfo()">bechdel data</span> of the top 100 imdb rated movies from different genres.
+                    <h2>Bechdel Impact in the Movie Universe</h2> 
+                    <p>This visualization display <span id="aboutBechdel" onmouseover="showBechdelInfo()" onmouseout="hideBechdelInfo()">bechdel data </span> of the top 100 imdb rated movies from different genres.
                     </p>
-                    <p><u>DATASETS</u>: <a href="https://www.imdb.com/interfaces/"> IMDB data</a> <a href="https://data.world/fivethirtyeight/bechdel " >Bechdel data</a>, </p>
-                    <p><u>GROSS INCOME</u></p>
+                    <p class="title-text">DATASETS</p>
+                    <p class="datasets"><a href="https://www.imdb.com/interfaces/"> IMDB data , </a>
+                    <a href="https://data.world/fivethirtyeight/bechdel " >Bechdel data</a></p>
+                    <p class= "title-text">GROSS INCOME</p>
                     <div id="circles">
                         <span class="circle1"></span></span><span class="circle2"></span><span class="circle3"></span>
-                        <p>no income data &nbsp;&nbsp; < 200,000,000 $ &nbsp;&nbsp; > 200,000,000 $ </p>
-                    </div>
+                        <p>no income data &nbsp;&nbsp; < 200,000,000 $ &nbsp;&nbsp; > 200,000,000 $ </p></br>
+                    </div></br>
                     <!-- Filtering -->
                     <div id="buttons">
                         <button class="btn pass" onclick="changeColor('1',this)"></button><p>Bechdel pass</p></br>
@@ -48,7 +50,6 @@
                 <div id="vis">
                     <div id="legendfloat">
                         <div id="centerImage">
-
                         </div>
                     </div>
                     

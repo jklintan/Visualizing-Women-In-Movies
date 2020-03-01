@@ -9,7 +9,7 @@ body, html{
 
 .container-fluid{
     background: transparent;
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 0px;
     margin-bottom: -400px;
 }
@@ -62,8 +62,8 @@ svg{
 }
 
 h2{
-    width: 25vw;
-    font-size: 26px !important;
+    width: 28vw;
+    font-size: 30px !important;
     font-family: 'Montserrat Subrayada' !important;
 }
 
@@ -255,6 +255,9 @@ svg{
     background-color: white;
     text-align: left;
 }
+#aboutBechdel {
+    font-style: italic;
+}
 
 #aboutBechdel:hover{
     cursor: pointer;
@@ -274,7 +277,7 @@ svg{
 .circle1 {
     height: 7px;
     width: 7px;
-    background-color: #4687AB;
+    background-color: #276688;
     border-radius: 50%;
     display: inline-block;
     margin-left: 2vw;
@@ -283,7 +286,7 @@ svg{
 .circle2 {
     height: 13px;
     width: 13px;
-    background-color:#4687AB;
+    background-color:#276688;
     border-radius: 50%;
     display: inline-block;
     margin-left: 2.5vw;
@@ -293,10 +296,32 @@ svg{
 .circle3 {
     height: 20px;
     width: 20px;
-    background-color:#4687AB;
+    background-color:#276688;
     border-radius: 50%;
     display: inline-block;
     margin-left: 2.5vw;
     margin-right: 2vw;
     
 }
+.title-text {
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 82, 114, 0.7);
+    text-underline-position: under;
+    margin-bottom: 6px;
+}
+.datasets {
+    margin-bottom: 2vw;
+    font-size: 13px;
+}
+.datasets a {
+    color: white;
+}
+.datasets a:link {
+    color: white;
+}
+.datasets a:hover {
+    color:#4687AB;
+    text-decoration: none;
+}
+
+
