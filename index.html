@@ -17,22 +17,39 @@
             <div class="card-body">
                 <div class="card-header">
                     <h2>Bechdel Impact in the Movie Universe</h2> 
-                    <p>This visualization display <span id="aboutBechdel" onmouseover="showBechdelInfo()" onmouseout="hideBechdelInfo()">bechdel data </span> of the top 100 imdb rated movies from different genres.
+                    <p>This visualization display <span id="aboutBechdel" onmouseover="showBechdelInfo()" onmouseout="hideBechdelInfo()">bechdel data</span>  of the top 100 imdb rated movies from different genres.
                     </p>
                     <p class="title-text">DATASETS</p>
-                    <p class="datasets"><a href="https://www.imdb.com/interfaces/"> IMDB data , </a>
+                    <p class="datasets"><a href="https://www.imdb.com/interfaces/">IMDB data , </a>
                     <a href="https://data.world/fivethirtyeight/bechdel " >Bechdel data</a></p>
                     <p class= "title-text">GROSS INCOME</p>
                     <div id="circles">
                         <span class="circle1"></span></span><span class="circle2"></span><span class="circle3"></span>
                         <p>no income data &nbsp;&nbsp; < 200,000,000 $ &nbsp;&nbsp; > 200,000,000 $ </p></br>
                     </div></br>
-                    <!-- Filtering -->
+
+                    <!-- Filtering 
                     <div id="buttons">
                         <button class="btn pass" onclick="changeColor('1',this)"></button><p>Bechdel pass</p></br>
                         <button class="btn fail" onclick="changeColor('0', this)"></button><p>Bechdel fail</p></br>
                         <button class="btn unknown" onclick="changeColor('N/A',this)"></button><p>Bechdel data unknown</p></br>
-                      </div>
+                    </div>-->
+
+                    <!-- Alternativ filtering -->
+                    <div>
+                    <label class="container-checkbox">Bechdel pass
+                        <input type="checkbox" onclick="changeColor('1',this)">
+                        <span class="checkmark1"></span>
+                      </label>
+                      <label class="container-checkbox">Bechdel fail
+                        <input type="checkbox" onclick="changeColor('0',this)">
+                        <span class="checkmark2"></span>
+                      </label>
+                      <label class="container-checkbox">Bechdel data unknown
+                        <input type="checkbox" onclick="changeColor('N/A',this)">
+                        <span class="checkmark3"></span>
+                      </label>
+                    </div>
                 
                 </div>
                 <div id="legend">

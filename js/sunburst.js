@@ -307,17 +307,15 @@ function sunburst(theData) {
     legend.style.backgroundColor = "white";
     if (d.bechdel == "1") {
       bechdelInfo[0].append("Passes bechdel test");
-      colorExtra.style.backgroundColor = "green"
+      colorExtra.style.backgroundColor = "#228043"
 
     } else if (d.bechdel == "0") {
       bechdelInfo[0].append("Do not pass the bechdel test");
-      colorExtra.style.backgroundColor = "red";
+      colorExtra.style.backgroundColor = "#992617";
     } else {
       bechdelInfo[0].append("Bechdel data do not exist");
-      colorExtra.style.backgroundColor = "grey"
+      colorExtra.style.backgroundColor = "#de9b30"
     }
-
-
 
     var coordinates = d3.mouse(this);
     var posMargin = (width / 2 + Math.floor(coordinates[0])) + 10;

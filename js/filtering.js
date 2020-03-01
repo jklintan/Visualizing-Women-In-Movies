@@ -7,6 +7,46 @@ function changeColor(c, button) {
   var pass = document.getElementsByClassName("1");
   var i;
 
+  if (!button.checked) {
+    if (c == "1") {
+      for (i = 0; i < pass.length; i++) {
+        pass[i].style.fill = "#fff";
+      }
+    }
+    if (c == "0") {
+      for (i = 0; i < fails.length; i++) {
+
+        fails[i].style.fill = "#fff";
+      }
+    }
+    if (c == "N/A") {
+      for (i = 0; i < unknown.length; i++) {
+        unknown[i].style.fill = "	#fff";
+      }
+    }
+  }
+
+  if (button.checked) {
+    if (c == "0") {
+      for (i = 0; i < fails.length; i++) {
+
+        fails[i].style.fill = "#992617";
+      }
+    }
+    if (c == "1") {
+      for (i = 0; i < pass.length; i++) {
+        pass[i].style.fill = "#228043";
+      }
+    }
+
+    if (c == "N/A") {
+      for (i = 0; i < unknown.length; i++) {
+        unknown[i].style.fill = "#de9b30";
+      }
+    }
+  }
+
+/*
   //Check and uncheck the button
   if (button.className == "btn pass active" || button.className == "btn fail active" || button.className == "btn unknown active") {
     button.className = "btn"
@@ -43,21 +83,22 @@ function changeColor(c, button) {
       button.className = "btn fail active"
       for (i = 0; i < fails.length; i++) {
 
-        fails[i].style.fill = "#8B0000";
+        fails[i].style.fill = "#992617";
       }
     }
     if (c == "1") {
       button.className = "btn pass active"
       for (i = 0; i < pass.length; i++) {
-        pass[i].style.fill = "#228B22";
+        pass[i].style.fill = "#228043";
       }
     }
 
     if (c == "N/A") {
       button.className = "btn unknown active"
       for (i = 0; i < unknown.length; i++) {
-        unknown[i].style.fill = "	#9ACD32";
+        unknown[i].style.fill = "#946923";
       }
     }
-  }
+  }*/
+
 };

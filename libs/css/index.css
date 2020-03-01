@@ -9,7 +9,8 @@ body, html{
 
 .container-fluid{
     background: transparent;
-    margin-top: 40px;
+    margin-top: 30px;
+    margin-left: 30px;
     margin-bottom: 0px;
     margin-bottom: -400px;
 }
@@ -163,6 +164,7 @@ svg{
 }
 
 /* Filtering */
+/*
 .show {
     display: block;
   }
@@ -174,7 +176,7 @@ svg{
   }
 
   .pass {
-      border: 2px solid green !important;
+      border: 2px solid #228043 !important;
   }
   
   .btn {
@@ -198,51 +200,53 @@ svg{
     background-color: #ccc !important;
     width: 20px !important;
     height: 25px !important;
-    border: 2px solid green;
+    border: 2px solid #228043;
 }   
 
 .btn .fail{
-    background-color: red !important;
+    background-color: #992617 !important;
     width: 20px !important;
     height: 25px !important;
-    border: 2px solid red;
+    border: 2px solid #992617;
 
 }
 
 .btn.pass.active{
-    background-color: green !important;
+    background-color: #228043 !important;
     width: 20px !important;
     height: 25px !important;
-    border: 2px solid green;
+    border: 2px solid #228043;
 }
 
 .btn.fail.active{
-    background-color: red !important;
+    background-color: #992617 !important;
     width: 20px !important;
     height: 25px !important;
-    border: 2px solid red;
+    border: 2px solid #992617;
 }
 
 .btn .unknown{
     background-color: #000 !important;
     width: 20px !important;
     height: 25px !important;
-    border: 2px solid yellow;
+    border: 2px solid #946923;
 }
 
 .unknown{
-    border: 2px solid yellow !important;
+    border: 2px solid #946923 !important;
 }
 
 .fail{
-    border: 2px solid red !important;
+    border: 2px solid #992617 !important;
 }
 .btn.unknown.active{
-    background-color: yellow !important;
+    background-color: #946923 !important;
     width: 20px !important;
     height: 25px !important;
-    border: 2px solid yellow !important;
+    border: 2px solid #946923 !important;
 }
+*/
+
 #bechdelInfoLegend{
     width: 400px;
     padding: 20px;
@@ -256,11 +260,14 @@ svg{
     text-align: left;
 }
 #aboutBechdel {
-    font-style: italic;
+    text-decoration: underline;
+    text-decoration-color: rgba(25, 82, 114, 0.7);
+    text-underline-position: under;
 }
 
 #aboutBechdel:hover{
     cursor: pointer;
+    color: #4687AB;
 }
 
 #bechdellegendHead{
@@ -304,14 +311,15 @@ svg{
     
 }
 .title-text {
-    text-decoration: underline;
-    text-decoration-color: rgba(25, 82, 114, 0.7);
-    text-underline-position: under;
+    /*text-decoration: underline;
+    text-underline-position: under;*/
+    color: #ccc;
     margin-bottom: 6px;
 }
 .datasets {
     margin-bottom: 2vw;
     font-size: 13px;
+    
 }
 .datasets a {
     color: white;
@@ -323,5 +331,87 @@ svg{
     color:#4687AB;
     text-decoration: none;
 }
+
+/* Checkbox filtering */
+.container-checkbox {
+    display: block;
+    position: relative;
+    margin-bottom: 10px;
+    margin-left: 2px;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 30px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide default checkbox */
+  .container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Checkbox style */
+  .checkmark1, .checkmark2, .checkmark3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color:#ccc;
+  }
+  
+  /* On mouse-over */
+  .container-checkbox:hover input ~ .checkmark1, 
+  .container-checkbox:hover input ~ .checkmark2, 
+  .container-checkbox:hover input ~ .checkmark3 {
+    background-color: #818894;
+  }
+  
+  /* When button is checked */
+  .container-checkbox input:checked ~ .checkmark1 {
+    background-color: #228043;
+  }
+  .container-checkbox input:checked ~ .checkmark2 {
+    background-color: #992617;
+    }
+  .container-checkbox input:checked ~ .checkmark3 {
+    background-color: #de9b30;
+    }
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark1:after, .checkmark2:after, .checkmark3:after  {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .container-checkbox input:checked ~ .checkmark1:after, 
+  .container-checkbox input:checked ~ .checkmark2:after, 
+  .container-checkbox input:checked ~.checkmark3:after {
+    display: block;
+  }
+  
+  /* Style of checkmark/indicator */
+  .container-checkbox .checkmark1:after, 
+  .container-checkbox .checkmark2:after, 
+  .container-checkbox .checkmark3:after {
+    left: 7px;
+    top: 4px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
 
 
