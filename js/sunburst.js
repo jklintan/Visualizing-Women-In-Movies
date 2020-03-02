@@ -87,9 +87,11 @@ function sunburst(theData) {
       .attr("d", arc)
       .attr("fill-rule", "evenodd")
       .attr("id", function (d) { return d.name })
-      .style("opacity", 1)
+      .style("opacity", 0.8)
       .style('stroke', function (d) { return (d.depth == 2) ? "#fff" : "#fff"; }) //color on the peaks
-      .style("stroke-width", 1);
+      .style("stroke-width", 2)
+      .on("mouseover", mouseoverGenre)
+      .on("mouseleave", mouseleaveGenre);
 
     var movieNameText = vis.selectAll("movieNameText")
       .data(nodes)
@@ -109,6 +111,7 @@ function sunburst(theData) {
       .enter().append("text")
       .style("fill", "#fff") //Colors of genre text
       .style("font-size", "14px")
+      .style("font-weight", "800")
       .style("width", "50px")
       .style("height", "10px")
       .attr("dy", function (d) { return "-3" }) //Move the text down
@@ -198,6 +201,10 @@ function sunburst(theData) {
   function mouseoverGenre(genreText) {
     d3.select(this).style("cursor", "pointer");
     oldstyle = [];
+
+    var genrePath = document.getElementById(genreText.name);
+    genrePath.style.stroke = "#4687AB";
+
     var genreTexts = document.getElementsByTagName("textPath")
     for (var i = 0; i < genreTexts.length; i++) {
       if (genreTexts[i].href.baseVal == "#" + genreText.name) {
@@ -236,6 +243,9 @@ function sunburst(theData) {
         break;
       }
     }
+
+    var genrePath = document.getElementById(genreText.name);
+    genrePath.style.stroke = "#fff";
 
     chosenText.style.fill = "#fff"
 
@@ -299,8 +309,10 @@ function sunburst(theData) {
 
     var bechdelInfo = document.getElementsByClassName("bechdelInfo")
     var yearInfo = document.getElementsByClassName("yearInfo");
+    var genreInfo = document.getElementsByClassName("genreInfo");
 
     yearInfo[0].append("Released: " + d.Year);
+    genreInfo[0].append("Genre: " + d.Genre);
 
     var colorExtra = document.getElementById("passInfo");
 
@@ -353,6 +365,9 @@ function sunburst(theData) {
 
     var yearInfo = document.getElementsByClassName("yearInfo");
     yearInfo[0].innerHTML = "";
+
+    var genreInfo = document.getElementsByClassName("genreInfo");
+    genreInfo[0].innerHTML = "";
 
     var elem = document.getElementById('centerImage');
     elem.style.backgroundImage = "url(./centerIm3.png)";

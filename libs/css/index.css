@@ -15,6 +15,7 @@ body, html{
     margin-bottom: -400px;
 }
 
+
 .card{
     background: none !important;
 }
@@ -36,6 +37,12 @@ text{
 .yearInfo{
     font-size: 12px;
     font-weight: 800;
+    margin-bottom: 0;
+}
+.genreInfo{
+    font-size: 11px;
+    font-weight: 800;
+    margin-top: 0;
 }
 
 .card-header{
@@ -294,13 +301,14 @@ a:hover {
     width: 20px;
     border-radius: 50%;
     background-color:#ccc;
+    opacity: 0.7 !important;
   }
   
   /* On mouse-over */
   .container-checkbox:hover input ~ .checkmark1, 
   .container-checkbox:hover input ~ .checkmark2, 
   .container-checkbox:hover input ~ .checkmark3 {
-    background-color: #818894;
+    opacity: 1 !important;
   }
   
   /* When button is checked */
