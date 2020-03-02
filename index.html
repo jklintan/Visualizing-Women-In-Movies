@@ -17,25 +17,20 @@
             <div class="card-body">
                 <div class="card-header">
                     <h2>Bechdel Impact in the Movie Universe</h2> 
-                    <p>This visualization display <span id="aboutBechdel" onmouseover="showBechdelInfo()" onmouseout="hideBechdelInfo()">bechdel data</span>  of the top 100 imdb rated movies from different genres.
+                    <p>This visualization display <span id="aboutBechdel" onmouseover="showBechdelInfo()" onmouseout="hideBechdelInfo()">bechdel data</span> of the 100 highest rated movies 
+                        on <a href="https://www.imdb.com/">IMDb</a>. The movies are classified and visualized according to their primary genre. 
                     </p>
-                    <p class="title-text">DATASETS</p>
+                    <p class="title-text">Datasets</p>
                     <p class="datasets"><a href="https://www.imdb.com/interfaces/">IMDB data , </a>
                     <a href="https://data.world/fivethirtyeight/bechdel " >Bechdel data</a></p>
-                    <p class= "title-text">GROSS INCOME</p>
+                    <p class= "title-text">Gross income</p>
                     <div id="circles">
                         <span class="circle1"></span></span><span class="circle2"></span><span class="circle3"></span>
-                        <p>no income data &nbsp;&nbsp; < 200,000,000 $ &nbsp;&nbsp; > 200,000,000 $ </p></br>
-                    </div></br>
+                        <p>no income data &nbsp;&nbsp; < 200,000,000 $ &nbsp;&nbsp; > 200,000,000 $ </p>
+                    </div>
 
-                    <!-- Filtering 
-                    <div id="buttons">
-                        <button class="btn pass" onclick="changeColor('1',this)"></button><p>Bechdel pass</p></br>
-                        <button class="btn fail" onclick="changeColor('0', this)"></button><p>Bechdel fail</p></br>
-                        <button class="btn unknown" onclick="changeColor('N/A',this)"></button><p>Bechdel data unknown</p></br>
-                    </div>-->
-
-                    <!-- Alternativ filtering -->
+                    <!-- Filtering -->
+                    <p class= "title-text">Highlight options</p>
                     <div>
                     <label class="container-checkbox">Bechdel pass
                         <input type="checkbox" onclick="changeColor('1',this)">
@@ -49,6 +44,11 @@
                         <input type="checkbox" onclick="changeColor('N/A',this)">
                         <span class="checkmark3"></span>
                       </label>
+                    </div>
+
+                    <p class= "title-text">About</p>
+                    <div>
+                        <p>This project was created by Josefine Klintberg & Ester Lindgren 2020. More info <a href="https://github.com/jklintan/Visualizing-Women-In-Movies">can be found here.</a></p>
                     </div>
                 
                 </div>

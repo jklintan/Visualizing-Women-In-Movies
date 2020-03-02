@@ -47,6 +47,7 @@ text{
     margin-left: 0 !important;
     position: absolute;
     font-size: 14px;
+    text-align: justify !important;
 }
 
 svg{
@@ -66,6 +67,7 @@ h2{
     width: 28vw;
     font-size: 30px !important;
     font-family: 'Montserrat Subrayada' !important;
+    text-align: start !important;
 }
 
 .card-body{
@@ -141,6 +143,9 @@ svg{
 #bechdelInfoLegend{
     width: 400px;
     padding: 20px;
+    font-size: 13px;
+    padding-top: 10px;
+    text-align: justify !important;
     border: 1px solid black;
     border-radius: 10px;
     opacity: 0.9;
@@ -153,99 +158,18 @@ svg{
 
 #aboutBechdel:hover{
     cursor: pointer;
+    border-bottom: 1px solid #276688;
 }
 
 #bechdellegendHead{
     font-size: 20px;
+    font-family: M
 }
 
 .bechdelInfo{
     font-size: 12px;
 }
 
-/* Filtering */
-/*
-.show {
-    display: block;
-  }
-
-  button{
-      width: 20px !important;
-      height: 25px !important;
-      border: 2px solid #ccc !important;
-  }
-
-  .pass {
-      border: 2px solid #228043 !important;
-  }
-  
-  .btn {
-    outline: none;
-    background-color: #ccc !important;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #ddd;
-  }
-  
-
-  #buttons p {
-    font-size: 14px;
-    padding-left: 10px;
-    display: inline-block;
-}
-
-.btn.pass{
-    background-color: #ccc !important;
-    width: 20px !important;
-    height: 25px !important;
-    border: 2px solid #228043;
-}   
-
-.btn .fail{
-    background-color: #992617 !important;
-    width: 20px !important;
-    height: 25px !important;
-    border: 2px solid #992617;
-
-}
-
-.btn.pass.active{
-    background-color: #228043 !important;
-    width: 20px !important;
-    height: 25px !important;
-    border: 2px solid #228043;
-}
-
-.btn.fail.active{
-    background-color: #992617 !important;
-    width: 20px !important;
-    height: 25px !important;
-    border: 2px solid #992617;
-}
-
-.btn .unknown{
-    background-color: #000 !important;
-    width: 20px !important;
-    height: 25px !important;
-    border: 2px solid #946923;
-}
-
-.unknown{
-    border: 2px solid #946923 !important;
-}
-
-.fail{
-    border: 2px solid #992617 !important;
-}
-.btn.unknown.active{
-    background-color: #946923 !important;
-    width: 20px !important;
-    height: 25px !important;
-    border: 2px solid #946923 !important;
-}
-*/
 
 #bechdelInfoLegend{
     width: 400px;
@@ -260,9 +184,9 @@ svg{
     text-align: left;
 }
 #aboutBechdel {
-    text-decoration: underline;
-    text-decoration-color: rgba(25, 82, 114, 0.7);
+    border-bottom: 1px solid white;
     text-underline-position: under;
+    font-weight: 800;
 }
 
 #aboutBechdel:hover{
@@ -272,6 +196,7 @@ svg{
 
 #bechdellegendHead{
     font-size: 20px;
+    font-family: 'Montserrat Subrayada' !important;
 }
 
 .bechdelInfo{
@@ -310,27 +235,31 @@ svg{
     margin-right: 2vw;
     
 }
+
+a{
+    color:#276688 !important;
+}
+
+a:hover {
+    color:rgb(120, 186, 221) !important;
+    text-decoration: none !important;
+}
+
 .title-text {
-    /*text-decoration: underline;
-    text-underline-position: under;*/
+    margin-top: 30px;
     color: #ccc;
     margin-bottom: 6px;
+    text-transform: uppercase;
 }
+
+
 .datasets {
     margin-bottom: 2vw;
     font-size: 13px;
     
 }
-.datasets a {
-    color: white;
-}
-.datasets a:link {
-    color: white;
-}
-.datasets a:hover {
-    color:#4687AB;
-    text-decoration: none;
-}
+
+
 
 /* Checkbox filtering */
 .container-checkbox {
