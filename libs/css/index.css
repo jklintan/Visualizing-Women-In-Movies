@@ -335,20 +335,6 @@ a:hover {
   .container-checkbox input:checked ~.checkmark3:after {
     display: block;
   }
-  
-  /* Style of checkmark/indicator */
-  .container-checkbox .checkmark1:after, 
-  .container-checkbox .checkmark2:after, 
-  .container-checkbox .checkmark3:after {
-    left: 7px;
-    top: 4px;
-    width: 6px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
+
 
 
