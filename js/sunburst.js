@@ -5,7 +5,7 @@ function sunburst(theData) {
 
   //Set the first center image
   var elem = document.getElementById('centerImage');
-  elem.style.backgroundImage = "url(./centerIm3.png)";
+  elem.style.backgroundImage = "url(./img/centerIm3.png)";
 
   //Dimensions of starburst.
   var width = 1200;
@@ -371,7 +371,7 @@ function sunburst(theData) {
     genreInfo[0].innerHTML = "";
 
     var elem = document.getElementById('centerImage');
-    elem.style.backgroundImage = "url(./centerIm3.png)";
+    elem.style.backgroundImage = "url(./img/centerIm3.png)";
 
     var colorExtra = document.getElementById("passInfo");
     colorExtra.style.backgroundColor = "#f9d71c";
