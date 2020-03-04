@@ -80,7 +80,6 @@ uniqueID = 1
 genres = list()
 for item in strippedData:
     item['id'] = uniqueID
-    item['impact'] = 3
     uniqueID = uniqueID + 1
     if item['Genre'] in genres:
         genresID = 0
@@ -151,13 +150,24 @@ tempData = dict()
 genreID = 0
 first = 0
 listAllGenres = list()
+k = 0
+
+##Genres and statistics
+print("\n** STATISTICS OVER CHOSEN MOVIES **\n")
+
 for genre in genres:
     listGenre = list()
     for items in strippedData:
         if items['Genre'] == genres[genreID]:
             listGenre.append(items)
+            k = k + 1
     genreID = genreID + 1
     listAllGenres.append(listGenre)
+    stars = ""
+    for i in range(1,k):
+        stars = stars + "*"
+    print(genre + "(" + str(k-1) + "): " + stars)
+    k = 1
 
 genreID = 0
 templist = dict()
@@ -175,6 +185,6 @@ processedData['children'] = fullList
 with open('processedData.json', 'w', encoding='utf-8') as f:
     json.dump(processedData, f, ensure_ascii=False, indent=4)
 
-print("Writing to file processedData.json")    
+print("\nWriting to file processedData.json")    
 print("\n########### DONE PROCESSING ###########")
 
