@@ -18,7 +18,6 @@
                     "imdbID": "tt0468569",
                     "PosterImage": "tt0468569.jpg",
                     "id": 6,
-                    "impact": 3,
                     "income": "1002891358",
                     "bechdel": 0
                 },
@@ -34,7 +33,6 @@
                     "imdbID": "tt0120737",
                     "PosterImage": "tt0120737.jpg",
                     "id": 10,
-                    "impact": 3,
                     "income": "887217688",
                     "bechdel": 0
                 },
@@ -50,7 +48,6 @@
                     "imdbID": "tt0167260",
                     "PosterImage": "tt0167260.jpg",
                     "id": 11,
-                    "impact": 3,
                     "income": "1141408667",
                     "bechdel": 0
                 },
@@ -66,7 +63,6 @@
                     "imdbID": "tt0167261",
                     "PosterImage": "tt0167261.jpg",
                     "id": 13,
-                    "impact": 3,
                     "income": "927048984",
                     "bechdel": 0
                 },
@@ -82,7 +78,6 @@
                     "imdbID": "tt0080684",
                     "PosterImage": "tt0080684.jpg",
                     "id": 14,
-                    "impact": 3,
                     "income": "534171960",
                     "bechdel": 0
                 },
@@ -98,7 +93,6 @@
                     "imdbID": "tt1375666",
                     "PosterImage": "tt1375666.jpg",
                     "id": 18,
-                    "impact": 3,
                     "income": "832584416",
                     "bechdel": 0
                 },
@@ -114,7 +108,6 @@
                     "imdbID": "tt0076759",
                     "PosterImage": "tt0076759.jpg",
                     "id": 21,
-                    "impact": 3,
                     "income": "797900000",
                     "bechdel": 0
                 },
@@ -130,7 +123,6 @@
                     "imdbID": "tt0133093",
                     "PosterImage": "tt0133093.jpg",
                     "id": 23,
-                    "impact": 3,
                     "income": "460279930",
                     "bechdel": 1
                 },
@@ -146,7 +138,6 @@
                     "imdbID": "tt1345836",
                     "PosterImage": "tt1345836.jpg",
                     "id": 30,
-                    "impact": 3,
                     "income": "1079343943",
                     "bechdel": 0
                 },
@@ -162,7 +153,6 @@
                     "imdbID": "tt0082971",
                     "PosterImage": "tt0082971.jpg",
                     "id": 32,
-                    "impact": 3,
                     "income": "389925971",
                     "bechdel": 0
                 },
@@ -178,7 +168,6 @@
                     "imdbID": "tt0120815",
                     "PosterImage": "tt0120815.jpg",
                     "id": 33,
-                    "impact": 3,
                     "income": "485035085",
                     "bechdel": 0
                 },
@@ -194,7 +183,6 @@
                     "imdbID": "tt0082096",
                     "PosterImage": "tt0082096.jpg",
                     "id": 46,
-                    "impact": 3,
                     "income": "84970337",
                     "bechdel": 0
                 },
@@ -210,7 +198,6 @@
                     "imdbID": "tt0103064",
                     "PosterImage": "tt0103064.jpg",
                     "id": 48,
-                    "impact": 3,
                     "income": "516816151",
                     "bechdel": 0
                 },
@@ -226,7 +213,6 @@
                     "imdbID": "tt0090605",
                     "PosterImage": "tt0090605.jpg",
                     "id": 56,
-                    "impact": 3,
                     "income": "183316455",
                     "bechdel": 1
                 },
@@ -242,7 +228,6 @@
                     "imdbID": "tt0172495",
                     "PosterImage": "tt0172495.jpg",
                     "id": 58,
-                    "impact": 3,
                     "income": "457683805",
                     "bechdel": 0
                 },
@@ -258,7 +243,6 @@
                     "imdbID": "tt0112573",
                     "PosterImage": "tt0112573.jpg",
                     "id": 62,
-                    "impact": 3,
                     "income": "209000000",
                     "bechdel": 0
                 },
@@ -274,7 +258,6 @@
                     "imdbID": "tt0086190",
                     "PosterImage": "tt0086190.jpg",
                     "id": 67,
-                    "impact": 3,
                     "income": "572700000",
                     "bechdel": 0
                 },
@@ -290,7 +273,6 @@
                     "imdbID": "tt0089881",
                     "PosterImage": "tt0089881.jpg",
                     "id": 86,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -306,7 +288,6 @@
                     "imdbID": "tt0097576",
                     "PosterImage": "tt0097576.jpg",
                     "id": 90,
-                    "impact": 3,
                     "income": "474171806",
                     "bechdel": 0
                 },
@@ -322,7 +303,6 @@
                     "imdbID": "tt0113277",
                     "PosterImage": "tt0113277.jpg",
                     "id": 98,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -338,7 +318,6 @@
                     "imdbID": "tt0095016",
                     "PosterImage": "tt0095016.jpg",
                     "id": 100,
-                    "impact": 3,
                     "income": "139109346",
                     "bechdel": 1
                 }
@@ -360,7 +339,6 @@
                     "imdbID": "tt1853728",
                     "PosterImage": "tt1853728.jpg",
                     "id": 45,
-                    "impact": 3,
                     "income": "425373688",
                     "bechdel": 0
                 },
@@ -376,7 +354,6 @@
                     "imdbID": "tt0088763",
                     "PosterImage": "tt0088763.jpg",
                     "id": 50,
-                    "impact": 3,
                     "income": "383874862",
                     "bechdel": 0
                 },
@@ -392,7 +369,6 @@
                     "imdbID": "tt0169102",
                     "PosterImage": "tt0169102.jpg",
                     "id": 64,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -408,7 +384,6 @@
                     "imdbID": "tt0070233",
                     "PosterImage": "tt0070233.jpg",
                     "id": 69,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -424,7 +399,6 @@
                     "imdbID": "tt0071853",
                     "PosterImage": "tt0071853.jpg",
                     "id": 79,
-                    "impact": 3,
                     "income": "5028948",
                     "bechdel": 0
                 },
@@ -440,7 +414,6 @@
                     "imdbID": "tt0361748",
                     "PosterImage": "tt0361748.jpg",
                     "id": 84,
-                    "impact": 3,
                     "income": "316971720",
                     "bechdel": 0
                 }
@@ -462,7 +435,6 @@
                     "imdbID": "tt0245429",
                     "PosterImage": "tt0245429.jpg",
                     "id": 27,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -478,7 +450,6 @@
                     "imdbID": "tt0110357",
                     "PosterImage": "tt0110357.jpg",
                     "id": 41,
-                    "impact": 3,
                     "income": "952880140",
                     "bechdel": 0
                 },
@@ -494,7 +465,6 @@
                     "imdbID": "tt0910970",
                     "PosterImage": "tt0910970.jpg",
                     "id": 49,
-                    "impact": 3,
                     "income": "532590994",
                     "bechdel": 0
                 },
@@ -510,7 +480,6 @@
                     "imdbID": "tt0435761",
                     "PosterImage": "tt0435761.jpg",
                     "id": 57,
-                    "impact": 3,
                     "income": "1063759456",
                     "bechdel": 0
                 },
@@ -526,7 +495,6 @@
                     "imdbID": "tt0119698",
                     "PosterImage": "tt0119698.jpg",
                     "id": 60,
-                    "impact": 3,
                     "income": "150350000",
                     "bechdel": 1
                 },
@@ -542,7 +510,6 @@
                     "imdbID": "tt0096283",
                     "PosterImage": "tt0096283.jpg",
                     "id": 97,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 }
@@ -564,7 +531,6 @@
                     "imdbID": "tt0108052",
                     "PosterImage": "tt0108052.jpg",
                     "id": 12,
-                    "impact": 3,
                     "income": "321365567",
                     "bechdel": 1
                 },
@@ -580,7 +546,6 @@
                     "imdbID": "tt0099685",
                     "PosterImage": "tt0099685.jpg",
                     "id": 15,
-                    "impact": 3,
                     "income": "46743809",
                     "bechdel": 0
                 },
@@ -596,7 +561,6 @@
                     "imdbID": "tt1675434",
                     "PosterImage": "tt1675434.jpg",
                     "id": 26,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -612,7 +576,6 @@
                     "imdbID": "tt0993846",
                     "PosterImage": "tt0993846.jpg",
                     "id": 52,
-                    "impact": 3,
                     "income": "365702857",
                     "bechdel": 0
                 },
@@ -628,7 +591,6 @@
                     "imdbID": "tt0074462",
                     "PosterImage": "tt0074462.jpg",
                     "id": 72,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -644,7 +606,6 @@
                     "imdbID": "tt0086879",
                     "PosterImage": "tt0086879.jpg",
                     "id": 75,
-                    "impact": 3,
                     "income": "51973029",
                     "bechdel": 1
                 },
@@ -660,7 +621,6 @@
                     "imdbID": "tt1278469",
                     "PosterImage": "tt1278469.jpg",
                     "id": 81,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -676,7 +636,6 @@
                     "imdbID": "tt2024544",
                     "PosterImage": "tt2024544.jpg",
                     "id": 99,
-                    "impact": 3,
                     "income": "158607035",
                     "bechdel": 0
                 }
@@ -698,7 +657,6 @@
                     "imdbID": "tt3322420",
                     "PosterImage": "tt3322420.jpg",
                     "id": 5,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -714,7 +672,6 @@
                     "imdbID": "tt0118799",
                     "PosterImage": "tt0118799.jpg",
                     "id": 25,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -730,7 +687,6 @@
                     "imdbID": "tt0076727",
                     "PosterImage": "tt0076727.jpg",
                     "id": 37,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -746,7 +702,6 @@
                     "imdbID": "tt0211915",
                     "PosterImage": "tt0211915.jpg",
                     "id": 42,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -762,7 +717,6 @@
                     "imdbID": "tt0073179",
                     "PosterImage": "tt0073179.jpg",
                     "id": 54,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -778,7 +732,6 @@
                     "imdbID": "tt1187043",
                     "PosterImage": "tt1187043.jpg",
                     "id": 61,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -794,7 +747,6 @@
                     "imdbID": "tt0208092",
                     "PosterImage": "tt0208092.jpg",
                     "id": 63,
-                    "impact": 3,
                     "income": "83593107",
                     "bechdel": 0
                 },
@@ -810,7 +762,6 @@
                     "imdbID": "tt0070735",
                     "PosterImage": "tt0070735.jpg",
                     "id": 70,
-                    "impact": 3,
                     "income": "159616327",
                     "bechdel": 0
                 },
@@ -826,7 +777,6 @@
                     "imdbID": "tt0091341",
                     "PosterImage": "tt0091341.jpg",
                     "id": 89,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -842,7 +792,6 @@
                     "imdbID": "tt0079579",
                     "PosterImage": "tt0079579.jpg",
                     "id": 96,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 }
@@ -864,7 +813,6 @@
                     "imdbID": "tt0111161",
                     "PosterImage": "tt0111161.jpg",
                     "id": 1,
-                    "impact": 3,
                     "income": "28241469",
                     "bechdel": 0
                 },
@@ -880,7 +828,6 @@
                     "imdbID": "tt0068646",
                     "PosterImage": "tt0068646.jpg",
                     "id": 3,
-                    "impact": 3,
                     "income": "268500000",
                     "bechdel": 0
                 },
@@ -896,7 +843,6 @@
                     "imdbID": "tt0071562",
                     "PosterImage": "tt0071562.jpg",
                     "id": 4,
-                    "impact": 3,
                     "income": "57300000",
                     "bechdel": 1
                 },
@@ -912,7 +858,6 @@
                     "imdbID": "tt0110912",
                     "PosterImage": "tt0110912.jpg",
                     "id": 7,
-                    "impact": 3,
                     "income": "212928762",
                     "bechdel": 1
                 },
@@ -928,7 +873,6 @@
                     "imdbID": "tt0114814",
                     "PosterImage": "tt0114814.jpg",
                     "id": 19,
-                    "impact": 3,
                     "income": "34449356",
                     "bechdel": 0
                 },
@@ -944,7 +888,6 @@
                     "imdbID": "tt0317248",
                     "PosterImage": "tt0317248.jpg",
                     "id": 20,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -960,7 +903,6 @@
                     "imdbID": "tt0114369",
                     "PosterImage": "tt0114369.jpg",
                     "id": 22,
-                    "impact": 3,
                     "income": "328125643",
                     "bechdel": 0
                 },
@@ -976,7 +918,6 @@
                     "imdbID": "tt0110413",
                     "PosterImage": "tt0110413.jpg",
                     "id": 31,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -992,7 +933,6 @@
                     "imdbID": "tt0102926",
                     "PosterImage": "tt0102926.jpg",
                     "id": 34,
-                    "impact": 3,
                     "income": "275726716",
                     "bechdel": 1
                 },
@@ -1008,7 +948,6 @@
                     "imdbID": "tt0120586",
                     "PosterImage": "tt0120586.jpg",
                     "id": 35,
-                    "impact": 3,
                     "income": "6719864",
                     "bechdel": 0
                 },
@@ -1024,7 +963,6 @@
                     "imdbID": "tt0120689",
                     "PosterImage": "tt0120689.jpg",
                     "id": 51,
-                    "impact": 3,
                     "income": "290701374",
                     "bechdel": 0
                 },
@@ -1040,7 +978,6 @@
                     "imdbID": "tt0407887",
                     "PosterImage": "tt0407887.jpg",
                     "id": 53,
-                    "impact": 3,
                     "income": "290539042",
                     "bechdel": 0
                 },
@@ -1056,7 +993,6 @@
                     "imdbID": "tt0105236",
                     "PosterImage": "tt0105236.jpg",
                     "id": 68,
-                    "impact": 3,
                     "income": "2832029",
                     "bechdel": 0
                 },
@@ -1072,7 +1008,6 @@
                     "imdbID": "tt0075314",
                     "PosterImage": "tt0075314.jpg",
                     "id": 73,
-                    "impact": 3,
                     "income": "28262574",
                     "bechdel": 0
                 },
@@ -1088,7 +1023,6 @@
                     "imdbID": "tt0066921",
                     "PosterImage": "tt0066921.jpg",
                     "id": 77,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1104,7 +1038,6 @@
                     "imdbID": "tt0119488",
                     "PosterImage": "tt0119488.jpg",
                     "id": 93,
-                    "impact": 3,
                     "income": "110604977",
                     "bechdel": 0
                 }
@@ -1126,7 +1059,6 @@
                     "imdbID": "tt1424432",
                     "PosterImage": "tt1424432.jpg",
                     "id": 24,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1142,7 +1074,6 @@
                     "imdbID": "tt0770802",
                     "PosterImage": "tt0770802.jpg",
                     "id": 71,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1158,7 +1089,6 @@
                     "imdbID": "tt0103767",
                     "PosterImage": "tt0103767.jpg",
                     "id": 92,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 }
@@ -1180,7 +1110,6 @@
                     "imdbID": "tt0417349",
                     "PosterImage": "tt0417349.jpg",
                     "id": 8,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1196,7 +1125,6 @@
                     "imdbID": "tt0137523",
                     "PosterImage": "tt0137523.jpg",
                     "id": 9,
-                    "impact": 3,
                     "income": "100853753",
                     "bechdel": 0
                 },
@@ -1212,7 +1140,6 @@
                     "imdbID": "tt0073486",
                     "PosterImage": "tt0073486.jpg",
                     "id": 16,
-                    "impact": 3,
                     "income": "108981275",
                     "bechdel": 0
                 },
@@ -1228,7 +1155,6 @@
                     "imdbID": "tt0109830",
                     "PosterImage": "tt0109830.jpg",
                     "id": 17,
-                    "impact": 3,
                     "income": "679400525",
                     "bechdel": 0
                 },
@@ -1244,7 +1170,6 @@
                     "imdbID": "tt0405508",
                     "PosterImage": "tt0405508.jpg",
                     "id": 28,
-                    "impact": 3,
                     "income": "29197694",
                     "bechdel": 1
                 },
@@ -1260,7 +1185,6 @@
                     "imdbID": "tt0405094",
                     "PosterImage": "tt0405094.jpg",
                     "id": 36,
-                    "impact": 3,
                     "income": "81197047",
                     "bechdel": 0
                 },
@@ -1276,7 +1200,6 @@
                     "imdbID": "tt0482571",
                     "PosterImage": "tt0482571.jpg",
                     "id": 38,
-                    "impact": 3,
                     "income": "107896006",
                     "bechdel": 0
                 },
@@ -1292,7 +1215,6 @@
                     "imdbID": "tt0095765",
                     "PosterImage": "tt0095765.jpg",
                     "id": 39,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1308,7 +1230,6 @@
                     "imdbID": "tt0169547",
                     "PosterImage": "tt0169547.jpg",
                     "id": 40,
-                    "impact": 3,
                     "income": "356258047",
                     "bechdel": 1
                 },
@@ -1324,7 +1245,6 @@
                     "imdbID": "tt0078788",
                     "PosterImage": "tt0078788.jpg",
                     "id": 47,
-                    "impact": 3,
                     "income": "78800000",
                     "bechdel": 0
                 },
@@ -1340,7 +1260,6 @@
                     "imdbID": "tt1832382",
                     "PosterImage": "tt1832382.jpg",
                     "id": 55,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1356,7 +1275,6 @@
                     "imdbID": "tt0346336",
                     "PosterImage": "tt0346336.jpg",
                     "id": 59,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1372,7 +1290,6 @@
                     "imdbID": "tt0364569",
                     "PosterImage": "tt0364569.jpg",
                     "id": 65,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1388,7 +1305,6 @@
                     "imdbID": "tt0093058",
                     "PosterImage": "tt0093058.jpg",
                     "id": 66,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1404,7 +1320,6 @@
                     "imdbID": "tt0088727",
                     "PosterImage": "tt0088727.jpg",
                     "id": 74,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1420,7 +1335,6 @@
                     "imdbID": "tt0180093",
                     "PosterImage": "tt0180093.jpg",
                     "id": 76,
-                    "impact": 3,
                     "income": "7390108",
                     "bechdel": 1
                 },
@@ -1436,7 +1350,6 @@
                     "imdbID": "tt0338013",
                     "PosterImage": "tt0338013.jpg",
                     "id": 78,
-                    "impact": 3,
                     "income": "72993444",
                     "bechdel": 0
                 },
@@ -1452,7 +1365,6 @@
                     "imdbID": "tt1521783",
                     "PosterImage": "tt1521783.jpg",
                     "id": 80,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1468,7 +1380,6 @@
                     "imdbID": "tt1305806",
                     "PosterImage": "tt1305806.jpg",
                     "id": 82,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1484,7 +1395,6 @@
                     "imdbID": "tt0083658",
                     "PosterImage": "tt0083658.jpg",
                     "id": 83,
-                    "impact": 3,
                     "income": "33139618",
                     "bechdel": 0
                 },
@@ -1500,7 +1410,6 @@
                     "imdbID": "tt0101640",
                     "PosterImage": "tt0101640.jpg",
                     "id": 85,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1516,7 +1425,6 @@
                     "imdbID": "tt2106476",
                     "PosterImage": "tt2106476.jpg",
                     "id": 87,
-                    "impact": 3,
                     "income": "687185",
                     "bechdel": 0
                 },
@@ -1532,7 +1440,6 @@
                     "imdbID": "tt1798709",
                     "PosterImage": "tt1798709.jpg",
                     "id": 88,
-                    "impact": 3,
                     "income": "33029713",
                     "bechdel": 0
                 },
@@ -1548,7 +1455,6 @@
                     "imdbID": "tt0457430",
                     "PosterImage": "tt0457430.jpg",
                     "id": 91,
-                    "impact": 3,
                     "income": "87041569",
                     "bechdel": 1
                 },
@@ -1564,7 +1470,6 @@
                     "imdbID": "tt0086739",
                     "PosterImage": "tt0086739.jpg",
                     "id": 94,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 },
@@ -1580,7 +1485,6 @@
                     "imdbID": "tt1821480",
                     "PosterImage": "tt1821480.jpg",
                     "id": 95,
-                    "impact": 3,
                     "income": "-1",
                     "bechdel": "N/A"
                 }
@@ -1602,7 +1506,6 @@
                     "imdbID": "tt0078748",
                     "PosterImage": "tt0078748.jpg",
                     "id": 43,
-                    "impact": 3,
                     "income": "203630630",
                     "bechdel": 1
                 },
@@ -1618,7 +1521,6 @@
                     "imdbID": "tt0081505",
                     "PosterImage": "tt0081505.jpg",
                     "id": 44,
-                    "impact": 3,
                     "income": "44017374",
                     "bechdel": 0
                 }
@@ -1640,7 +1542,6 @@
                     "imdbID": "tt0209144",
                     "PosterImage": "tt0209144.jpg",
                     "id": 29,
-                    "impact": 3,
                     "income": "39723096",
                     "bechdel": 0
                 }
@@ -1662,7 +1563,6 @@
                     "imdbID": "tt0112130",
                     "PosterImage": "tt0112130.jpg",
                     "id": 2,
-                    "impact": 3,
                     "income": "120918508",
                     "bechdel": 1
                 }

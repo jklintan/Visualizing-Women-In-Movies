@@ -1,4 +1,4 @@
-
+//Creates a sunburst chart from movie data
 function sunburst(theData) {
 
   var chartData = theData;
@@ -48,10 +48,10 @@ function sunburst(theData) {
     });
 
   //start rendering   
-  generateStarBurst(chartData);
+  generateSunBurst(chartData);
 
-  // Main function to draw graph and set up the visualization, once we have the data.
-  function generateStarBurst(json) {
+  // Main function to draw graph
+  function generateSunBurst(json) {
 
     var nodes = partition.nodes(json)
       .filter(function (d) {
@@ -191,17 +191,15 @@ function sunburst(theData) {
       .attr("dy", function (d) { return d.dy; });
   };
 
-  var x = document.getElementById("centerImage");
-  var oldstyle = [];
-
-
   // ************************ HOVER AND UNHOVER OVER GENRE TEXTS ******************************** //
 
   //Hover function for hovering over genres
   function mouseoverGenre(genreText) {
-    d3.select(this).style("cursor", "pointer");
+
+    d3.select(this).style("cursor", "pointer"); //Mouse hover pointer
     oldstyle = [];
 
+    // Highlight the current genre
     var genrePath = document.getElementById(genreText.name);
     genrePath.style.stroke = "#4687AB";
 
@@ -215,6 +213,7 @@ function sunburst(theData) {
 
     chosenText.style.fill = "#4687AB"
 
+    // Get all circles corresponding to the chosen genre
     var elementsCircle = document.getElementsByTagName("circle");
 
     for (var j = 0; j < chartData.children.length; j++) {
@@ -236,6 +235,8 @@ function sunburst(theData) {
   };
 
   function mouseleaveGenre(genreText) {
+
+    //Reset genre text and path to white
     var genreTexts = document.getElementsByTagName("textPath")
     for (var i = 0; i < genreTexts.length; i++) {
       if (genreTexts[i].href.baseVal == "#" + genreText.name) {
@@ -246,9 +247,9 @@ function sunburst(theData) {
 
     var genrePath = document.getElementById(genreText.name);
     genrePath.style.stroke = "#fff";
-
     chosenText.style.fill = "#fff"
 
+    // Reset all circles corresponding to the chosen genre to the state they were in before
     var elementsCircle = document.getElementsByTagName("circle");
 
     for (var j = 0; j < chartData.children.length; j++) {
@@ -273,7 +274,6 @@ function sunburst(theData) {
 
   // ************************ HOVER AND UNHOVER OVER SINGLE MOVIES TEXTS ******************************** //
 
-  //Fix mouseover effect (details on demand)
   function mouseover(d) {
     d3.select(this).style("cursor", "pointer");
 
@@ -288,12 +288,14 @@ function sunburst(theData) {
 
     saveIt.style.opacity = "1.0"
 
+    //Change middle element to the selected hovered poster
     var elem = document.getElementById('centerImage')
-    elem.style.backgroundImage = "url(https://raw.githubusercontent.com/jklintan/Visualizing-Women-In-Movies/master/data/images/" + d.PosterImage + ")"; 
+    elem.style.backgroundImage = "url(https://raw.githubusercontent.com/jklintan/Visualizing-Women-In-Movies/master/data/images/" + d.PosterImage + ")";
     elem.style.width = "150px";
     elem.style.height = "150px";
     elem.style.borderRadius = "50%";
 
+    //Display legend with more details of movie
     legend.style.visibility = "visible";
     var textTitle = d.Title.toUpperCase();
     var titlen = document.getElementsByTagName("h1");
@@ -329,12 +331,11 @@ function sunburst(theData) {
       colorExtra.style.backgroundColor = "#de9b30"
     }
 
+    //Position legend according to quadrant
     var coordinates = d3.mouse(this);
     var posMargin = (width / 2 + Math.floor(coordinates[0])) + 10;
     var posMargin2 = (height / 2 + Math.floor(coordinates[1])) + 10;
-    //legend.style.margin =  posMargin2 + "px " + posMargin + "px " ;
-    // legend.translate.x = posMargin;
-    console.log(coordinates[0])
+
     if (coordinates[1] < 0) {
       legend.style.marginTop = posMargin2 - 200 + "px";
     } else {
@@ -347,18 +348,18 @@ function sunburst(theData) {
       legend.style.marginLeft = posMargin + 150 + "px";
     }
 
-
   }
 
   // Restore everything to full opacity when moving off the visualization.
   function mouseleave(d) {
     d3.select(this).style("cursor", "default");
     var legenden = document.getElementById("legend");
+
+    //Reset legend
     legenden.getElementsByTagName('h1')[0].innerHTML = "";
     legenden.style.marginTop = "0";
     legenden.style.marginLeft = "0";
     legenden.style.visibility = "hidden";
-
 
     var bechdelInfo = document.getElementsByClassName("bechdelInfo")
     bechdelInfo[0].innerHTML = "";
@@ -391,7 +392,7 @@ function sunburst(theData) {
     return (d.x + (d.dx) / 2) * 180 / Math.PI - 90;
   }
 
-  //calculate the position of bubble
+  //calculate the position of movie circles
   function getMovieCircleData(d, i) {
     if (d.Year <= startYear) {
       return arc.centroid(d)[i] * 1.0;
@@ -405,7 +406,7 @@ function sunburst(theData) {
   }
 }
 
-// ************************ SHOW AND HIDE BECHDEL INFO ******************************** //
+// ************************ SHOW AND HIDE BECHDEL INFO IN MENU SECTION ******************************** //
 
 function showBechdelInfo(mouse) {
   var bechdelLegend = document.getElementById("bechdelInfoLegend");

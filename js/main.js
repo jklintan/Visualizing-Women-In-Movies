@@ -1,5 +1,4 @@
-
-
+//Loading movie data and creating the sunburst graph
 d3.json('./data/processedData.json', function(data){
 
   var sunburstGraph;
