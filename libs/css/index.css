@@ -1,3 +1,4 @@
+/* Structure */
 body, html{
     background: url('../../img/stars.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -6,7 +7,6 @@ body, html{
     background-size: cover;
     font-family: 'Karla' !important;
 }
-
 .container-fluid{
     background: transparent;
     margin-top: 30px;
@@ -14,37 +14,15 @@ body, html{
     margin-bottom: 0px;
     margin-bottom: -400px;
 }
-
-
 .card{
     background: none !important;
 }
-
-.card{
-    background: none;
-    border: none !important;
+.card-body{
+    margin: auto !important;
+    width: 80vw !important;
+    float: left;
+    margin-left: 10px !important;
 }
-
-.yeartext{
-    color: white !important;
-}
-
-/* Color of years  */
-text{
-    fill: #719cc3; 
-}
-
-.yearInfo{
-    font-size: 12px;
-    font-weight: 800;
-    margin-bottom: 0;
-}
-.genreInfo{
-    font-size: 11px;
-    font-weight: 800;
-    margin-top: 0;
-}
-
 .card-header{
     color: white !important; 
     text-align: left;
@@ -57,96 +35,46 @@ text{
     text-align: justify !important;
 }
 
-svg{
-    margin-left: 400px !important;
-    margin: auto !important;
-    float: center !important;
-}
-
-
-#container{
-    margin-left: 100px !important;
-    margin: auto !important;
-    float: center;
-}
-
+/* Text */
 h2{
     width: 28vw;
     font-size: 30px !important;
     font-family: 'Montserrat Subrayada' !important;
     text-align: start !important;
 }
-
-.card-body{
-    margin: auto !important;
-    width: 80vw !important;
-    float: left;
-    margin-left: 10px !important;
+.title-text {
+    margin-top: 30px;
+    color: #ccc;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+.datasets {
+    margin-bottom: 2vw;
+    font-size: 13px;
+}
+a{
+    color:#1F5A7C !important;
+}
+a:hover {
+    color: #77B4D3 !important;
+    text-decoration: none !important;
 }
 
-#vis{
-    width: 1200px;
-    margin-left: 10vw !important;
-    background: none;
+/* Bechdel information */
+#aboutBechdel {
+    border-bottom: 1px solid white;
+    text-underline-position: under;
+    font-weight: 800;
 }
-
-
-svg{
-    width: 1200px;
+#aboutBechdel:hover{
+    cursor: pointer;
+    border-bottom: 1px solid #4687AB;
+    color: #4687AB;
 }
-
-#legendfloat{
-    z-index: 2;
-    margin:auto;
-    text-align: center !important;
-    display: table-cell;
-    vertical-align: middle;
-    z-index: 2;
-    position: absolute;
-}
-
-#centerImage{
-    display: inline-block;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: black;
-    background-size: 150px;
-    background-repeat: no-repeat;
-    background-position: center;
-    left: 525px;
-    top: 325px;
-    position: absolute;
-    z-index: 2;
-    border: 2px solid white;
-}
-
-#legend h1{
-    font-size: 14px;
+#bechdellegendHead{
+    font-size: 20px;
     font-family: 'Montserrat Subrayada';
-    margin: auto;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-style: bold;
 }
-
-#passInfo{
-    width: 100%;
-    height: 20px;
-    background-color: #ccc;
-}
-
-#legend{
-    width: 150px;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    opacity: 0.9;
-    z-index: 3 !important;
-    position: absolute;
-    visibility: hidden;
-}
-
 #bechdelInfoLegend{
     width: 400px;
     padding: 20px;
@@ -163,60 +91,14 @@ svg{
     text-align: left;
 }
 
-#aboutBechdel:hover{
-    cursor: pointer;
-    border-bottom: 1px solid #276688;
-}
-
-#bechdellegendHead{
-    font-size: 20px;
-    font-family: M
-}
-
-.bechdelInfo{
-    font-size: 12px;
-}
-
-
-#bechdelInfoLegend{
-    width: 400px;
-    padding: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    opacity: 0.9;
-    z-index: 3 !important;
-    position: absolute;
-    visibility: hidden;
-    background-color: white;
-    text-align: left;
-}
-#aboutBechdel {
-    border-bottom: 1px solid white;
-    text-underline-position: under;
-    font-weight: 800;
-}
-
-#aboutBechdel:hover{
-    cursor: pointer;
-    color: #4687AB;
-}
-
-#bechdellegendHead{
-    font-size: 20px;
-    font-family: 'Montserrat Subrayada' !important;
-}
-
-.bechdelInfo{
-    font-size: 12px;
-}
-
+/* Gross income circles */
 #circles{
     font-size: 10px;
 }
 .circle1 {
     height: 7px;
     width: 7px;
-    background-color: #276688;
+    background-color: #1F5A7C;
     border-radius: 50%;
     display: inline-block;
     margin-left: 2vw;
@@ -225,7 +107,7 @@ svg{
 .circle2 {
     height: 13px;
     width: 13px;
-    background-color:#276688;
+    background-color:#1F5A7C;
     border-radius: 50%;
     display: inline-block;
     margin-left: 2.5vw;
@@ -235,7 +117,7 @@ svg{
 .circle3 {
     height: 20px;
     width: 20px;
-    background-color:#276688;
+    background-color:#1F5A7C;
     border-radius: 50%;
     display: inline-block;
     margin-left: 2.5vw;
@@ -243,32 +125,7 @@ svg{
     
 }
 
-a{
-    color:#276688 !important;
-}
-
-a:hover {
-    color:rgb(120, 186, 221) !important;
-    text-decoration: none !important;
-}
-
-.title-text {
-    margin-top: 30px;
-    color: #ccc;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
-
-
-.datasets {
-    margin-bottom: 2vw;
-    font-size: 13px;
-    
-}
-
-
-
-/* Checkbox filtering */
+/* Filtering after bechdel result */
 .container-checkbox {
     display: block;
     position: relative;
@@ -281,19 +138,15 @@ a:hover {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-  }
-  
-  /* Hide default checkbox */
-  .container-checkbox input {
+}
+.container-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
     height: 0;
     width: 0;
-  }
-  
-  /* Checkbox style */
-  .checkmark1, .checkmark2, .checkmark3 {
+}
+.checkmark1, .checkmark2, .checkmark3 {
     position: absolute;
     top: 0;
     left: 0;
@@ -302,39 +155,23 @@ a:hover {
     border-radius: 50%;
     background-color:#ccc;
     opacity: 0.7 !important;
-  }
-  
-  /* On mouse-over */
-  .container-checkbox:hover input ~ .checkmark1, 
-  .container-checkbox:hover input ~ .checkmark2, 
-  .container-checkbox:hover input ~ .checkmark3 {
+}
+.container-checkbox:hover input ~ .checkmark1, 
+.container-checkbox:hover input ~ .checkmark2, 
+.container-checkbox:hover input ~ .checkmark3 {
     opacity: 1 !important;
-  }
-  
-  /* When button is checked */
-  .container-checkbox input:checked ~ .checkmark1 {
+}
+.container-checkbox input:checked ~ .checkmark1 {
     background-color: #228043;
-  }
-  .container-checkbox input:checked ~ .checkmark2 {
+}
+.container-checkbox input:checked ~ .checkmark2 {
     background-color: #992617;
-    }
-  .container-checkbox input:checked ~ .checkmark3 {
+}
+.container-checkbox input:checked ~ .checkmark3 {
     background-color: #de9b30;
-    }
-  
-  /* Create the checkmark/indicator (hidden when not checked) */
-  .checkmark1:after, .checkmark2:after, .checkmark3:after  {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  /* Show the checkmark when checked */
-  .container-checkbox input:checked ~ .checkmark1:after, 
-  .container-checkbox input:checked ~ .checkmark2:after, 
-  .container-checkbox input:checked ~.checkmark3:after {
-    display: block;
-  }
+}
 
+
+  
 
 

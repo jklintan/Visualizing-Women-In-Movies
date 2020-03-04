@@ -1,0 +1,88 @@
+/* Structure */
+svg{
+    margin-left: 400px !important;
+    margin: auto !important;
+    float: center !important;
+    width: 1200px;
+}
+#container{
+    margin-left: 100px !important;
+    margin: auto !important;
+    float: center;
+}
+
+#vis{
+    width: 1200px;
+    margin-left: 10vw !important;
+    background: none;
+}
+
+#legendfloat{
+    z-index: 2;
+    margin:auto;
+    text-align: center !important;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 2;
+    position: absolute;
+}
+/* Image in the center of graph */
+#centerImage{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: black;
+    background-size: 150px;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 525px;
+    top: 325px;
+    position: absolute;
+    z-index: 2;
+    border: 2px solid white;
+}
+
+/* Years */
+text{
+    fill: #4687AB; 
+}
+
+/* Details about movies */
+#legend{
+    width: 150px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    opacity: 0.9;
+    z-index: 3 !important;
+    position: absolute;
+    visibility: hidden;
+}
+.yearInfo{
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 0;
+}
+.genreInfo{
+    font-size: 11px;
+    font-weight: 800;
+    margin-top: 0;
+}
+.bechdelInfo{
+    font-size: 12px;
+}
+#legend h1{
+    font-size: 14px;
+    font-family: 'Montserrat Subrayada';
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: bold;
+}
+#passInfo{
+    width: 100%;
+    height: 20px;
+    background-color: #ccc;
+}
+
