@@ -1,4 +1,4 @@
-# Visualizing Women In Movies - Women Impact in the Movie Universe
+# Women Impact in the Movie Universe
 This visualization display bechdel data of the 100 highest rated movies on IMDb. The movies are classified and visualized according to their primary genre. The project was conducted as part of the course 'Information Visualization, TNM048' at Linköping University and implemented under the duration of 4 weeks. The aim of the visualization is to investigate if there is a connection between movie genre and the amount of movies passing the Bechdel test. 
 
 <img width="100%" src="./img/visualizationOverview.PNG"/>
