@@ -343,9 +343,9 @@ function sunburst(theData) {
     }
 
     if (coordinates[0] < 0) {
-      legend.style.marginLeft = posMargin - 20 + "px";
+      legend.style.marginLeft = posMargin - 30 + "px";
     } else {
-      legend.style.marginLeft = posMargin + 150 + "px";
+      legend.style.marginLeft = posMargin + 180 + "px";
     }
 
   }
