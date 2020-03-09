@@ -2,6 +2,9 @@
 
 function changeColor(c, button) {
 
+  console.log("clicking")
+  console.log(button.checked)
+
   var unknown = document.getElementsByClassName("N/A");
   var fails = document.getElementsByClassName("0");
   var pass = document.getElementsByClassName("1");
@@ -29,7 +32,6 @@ function changeColor(c, button) {
   if (button.checked) {
     if (c == "0") {
       for (i = 0; i < fails.length; i++) {
-
         fails[i].style.fill = "#992617";
       }
     }
