@@ -328,7 +328,7 @@ function sunburst(theData) {
       colorExtra.style.backgroundColor = "#992617";
     } else {
       bechdelInfo[0].append("Bechdel data do not exist");
-      colorExtra.style.backgroundColor = "#de9b30"
+      colorExtra.style.backgroundColor = "#dddbd1"
     }
 
     //Position legend according to quadrant
