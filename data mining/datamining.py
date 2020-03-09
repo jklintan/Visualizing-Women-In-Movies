@@ -18,7 +18,7 @@ print('########## PROCESSING MOVIE DATABASES ########### \n')
 ## Read in json file with 5000 imdb movies ##
 data = {}
 cleanData = list()
-with open('./data/imdb_data.json') as json_file:
+with open('../data/imdb_data.json') as json_file:
     data = json.load(json_file)
     a = 0
     for item in data:
@@ -93,7 +93,7 @@ genres.sort()
 #print(genres)
 
 ## Read in csv file with bechdel test datawith open('employee_birthday.txt') as csv_file:
-with open('./data/bechdel.csv') as csv_file:
+with open('../data/bechdel.csv') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
     line_count = 0
     extraInfo = {}
