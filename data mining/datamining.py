@@ -45,7 +45,7 @@ with open('../data/imdb_data.json') as json_file:
         del item['Metascore']
         #del item['Type']
         del item['Released']
-        item['Genre'] = item['Genre'].partition(' ')[0]
+        item['Genre'] = item['Genre'].partition(' ')[0] #Only the primary genre are chosen
         if item['Genre'][-1] == ',':
             item['Genre'] = item['Genre'][:-1]
         
@@ -57,7 +57,7 @@ with open('../data/imdb_data.json') as json_file:
             continue
         
         item['PosterImage'] = item['imdbID'] + '.jpg'
-        filePath = './data/images/' + item['PosterImage']
+        filePath = '../data/images/' + item['PosterImage']
         try:
             f = open(filePath)
         except IOError:
@@ -151,6 +151,8 @@ genreID = 0
 first = 0
 listAllGenres = list()
 k = 0
+p = 0
+f = 0
 
 ##Genres and statistics
 print("\n** STATISTICS OVER CHOSEN MOVIES **\n")
@@ -161,13 +163,20 @@ for genre in genres:
         if items['Genre'] == genres[genreID]:
             listGenre.append(items)
             k = k + 1
+            if(items['bechdel'] == 0):
+                f = f + 1
+            if(items['bechdel'] == 1):
+                p = p + 1
     genreID = genreID + 1
     listAllGenres.append(listGenre)
     stars = ""
     for i in range(1,k):
         stars = stars + "*"
     print(genre + "(" + str(k-1) + "): " + stars)
+    #print(genre + "(" + str(k-1) + "): " + stars + "\nFailing = " + str(f) + " Passing = " + str(p) + " Unknown data = " + str(k-1-p-f) )
     k = 1
+    p = 0
+    f = 0
 
 genreID = 0
 templist = dict()
